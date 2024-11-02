@@ -24,7 +24,7 @@ const Login = () => {
         <CRow className="justify-content-center">
           <CCol md={8}>
             <CCardGroup>
-              <CCard className="p-4">
+              <CCard className="p-4" style={{backgroundColor: 'rgba(255, 189, 115, 1)'}}>
                 <CCardBody>
                   <CForm>
                     <h1 id='negro'>Login</h1>

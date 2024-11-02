@@ -30,149 +30,71 @@ const _nav = [
   },
   {
     component: CNavTitle,
-    name: 'Gestión de personal',
+    name: 'Personnel Management',
   },
   {
     component: CNavItem,
     name: 'Reclutamiento',
-    to: '/theme/colors',
+    to: '/recruitment',
     icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: 'Evaluación de desempeño',
-    to: '/theme/typography',
+    name: 'Performance Evaluation',
+    to: '/performanceEvaluation',
     icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
   },
   {
     component: CNavTitle,
-    name: 'Gestión de vuelos',
-  },
-  {
-    component: CNavGroup,
-    name: 'Lista de vuelos',
-    to: '/base',
-    icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Accordion',
-        to: '/base/accordion',
-      },
-      {
-        component: CNavItem,
-        name: 'Breadcrumb',
-        to: '/base/breadcrumbs',
-      },
-      {
-        component: CNavItem,
-        name: 'Cards',
-        to: '/base/cards',
-      },
-      {
-        component: CNavItem,
-        name: 'Carousel',
-        to: '/base/carousels',
-      },
-      {
-        component: CNavItem,
-        name: 'Collapse',
-        to: '/base/collapses',
-      },
-      {
-        component: CNavItem,
-        name: 'List group',
-        to: '/base/list-groups',
-      },
-      {
-        component: CNavItem,
-        name: 'Navs & Tabs',
-        to: '/base/navs',
-      },
-      {
-        component: CNavItem,
-        name: 'Pagination',
-        to: '/base/paginations',
-      },
-      {
-        component: CNavItem,
-        name: 'Placeholders',
-        to: '/base/placeholders',
-      },
-      {
-        component: CNavItem,
-        name: 'Popovers',
-        to: '/base/popovers',
-      },
-      {
-        component: CNavItem,
-        name: 'Progress',
-        to: '/base/progress',
-      },
-      {
-        component: CNavItem,
-        name: 'Spinners',
-        to: '/base/spinners',
-      },
-      {
-        component: CNavItem,
-        name: 'Tables',
-        to: '/base/tables',
-      },
-      {
-        component: CNavItem,
-        name: 'Tabs',
-        to: '/base/tabs',
-      },
-      {
-        component: CNavItem,
-        name: 'Tooltips',
-        to: '/base/tooltips',
-      },
-    ],
+    name: 'Flight Management',
   },
 
   {
-    component: CNavGroup,
-    name: 'Administración de vuelo',
-    to: '/base',
-    icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Accordion',
-        to: '/base/accordion',
-      },
-    ],
-    },
+    component: CNavItem,
+    name: 'List of Flights',
+    to: '/listFlight',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+  },
 
+  {
+    component: CNavItem,
+    name: 'Flight Management',
+    to: '/flightManagement',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+  },
+  
     {
       component: CNavItem,
-      name: 'Reservas',
-      to: '/base',
+      name: 'Reserves',
+      to: '/reserves',
       icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
       },
   
   {
     component: CNavItem,
-    name: 'Pagos',
-    to: '/charts',
+    name: 'Payments',
+    to: '/payments',
     icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
   },
   
   {
     component: CNavItem,
-    name: 'Reportes',
-    to: '/widgets',
+    name: 'Reports',
+    to: '/reports',
     icon: <CIcon icon={cilCalculator} customClassName="nav-icon" />,
-    badge: {
-      color: 'info',
-      
-    },
+    
+  },
+
+  {
+    component: CNavItem,
+    name: 'Users',
+    to: '/users',
+    icon: <CIcon icon={cilCalculator} customClassName="nav-icon" />,
+    
   },
   {
     component: CNavTitle,
-    name: 'Administración',
+    name: 'Administration',
   },
   {
     component: CNavGroup,
@@ -192,12 +114,7 @@ const _nav = [
       
     ],
   },
-  {
-    component: CNavItem,
-    name: 'Info',
-    href: 'https://coreui.io/react/docs/templates/installation/',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
-  },
+  
 ]
 
 export default _nav
