@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
     CForm,
@@ -8,13 +8,11 @@ import {
     CInputGroupText,
     CInputGroup,
     CFormSelect,
-    CFormCheck,
-    CFormFeedback,
     CButton,
 
 } from '@coreui/react'
 
-export const recruitment = () => {
+const recruitment = () => {
     return(
 
     <CForm className="row g-3">
@@ -109,3 +107,5 @@ export const recruitment = () => {
 </CForm>
 )
 }
+
+export default recruitment;

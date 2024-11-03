@@ -1,5 +1,8 @@
 import react from 'react';
 
-export const performanceEvaluation = () =>{
+const performanceEvaluation = () =>{
     return <div>performanceEvaluation</div>
 }
+
+
+export default performanceEvaluation

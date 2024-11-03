@@ -1,6 +1,9 @@
 import react from 'react';
 
-export const flightManagement = () => {
+const flightManagement = () => {
     return <div>flightManagement</div>
     
 }
+
+
+export default flightManagement

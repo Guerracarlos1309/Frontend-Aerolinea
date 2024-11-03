@@ -1,5 +1,5 @@
 import React from "react";
-
+import  { useState } from 'react'
 import {
   CTable,
   CTableHead,
@@ -9,12 +9,18 @@ import {
   CTableDataCell,
   CFormInput,
   CButton,
-
-  
-
+  CModal,
+  CModalHeader,
+  CModalTitle,
+  CModalBody,
+  CModalFooter,
 } from '@coreui/react';
 
-export const users = () => {
+ const users = () => {
+
+  const [visible, setVisible] = useState(false)
+
+ 
 
   return (
 
@@ -54,9 +60,21 @@ export const users = () => {
       <CButton color="primary" size="sm" className="me-2">
                 Editar
               </CButton>
-              <CButton color="danger" size="sm">
-                Borrar
-              </CButton>
+              <CButton color="danger" size="sm" onClick={() => setVisible(!visible)}>Delete</CButton>
+              <CModal visible={visible} onClose={() => setVisible(false)} aria-labelledby="LiveDemoExampleLabel">
+                <CModalHeader>
+                  <CModalTitle id="LiveDemoExampleLabel">¿Desea eliminar?</CModalTitle>
+                </CModalHeader>
+                <CModalBody>
+                  <p>Los cambios no podran deshacerse. ¿Desea eliminar?</p>
+                </CModalBody>
+                <CModalFooter>
+                  <CButton color="secondary" onClick={() => setVisible(false)}>
+                      Close
+                 </CButton>
+                <CButton color="primary">Delete</CButton>
+                </CModalFooter>
+                 </CModal>
       </CTableDataCell>
      
     </CTableRow>
@@ -70,9 +88,22 @@ export const users = () => {
       <CButton color="primary" size="sm" className="me-2">
                 Editar
               </CButton>
-              <CButton color="danger" size="sm">
-                Borrar
-              </CButton>
+              <CButton color="danger" size="sm" onClick={() => setVisible(!visible)}>Delete</CButton>
+              <CModal visible={visible} onClose={() => setVisible(false)} aria-labelledby="LiveDemoExampleLabel">
+                <CModalHeader>
+                  <CModalTitle id="LiveDemoExampleLabel">¿Desea eliminar?</CModalTitle>
+                </CModalHeader>
+                <CModalBody>
+                  <p>Los cambios no podran deshacerse. ¿Desea eliminar?</p>
+                </CModalBody>
+                <CModalFooter>
+                  <CButton color="secondary" onClick={() => setVisible(false)}>
+                      Close
+                 </CButton>
+                <CButton color="primary">Delete</CButton>
+                </CModalFooter>
+                 </CModal>
+              
       </CTableDataCell>
     </CTableRow>
     <CTableRow>
@@ -81,26 +112,35 @@ export const users = () => {
       <CTableDataCell>rossychacon30@gmail.com</CTableDataCell>
       <CTableDataCell>4247370080</CTableDataCell>
       <CTableDataCell>Admin</CTableDataCell>
-      <CTableDataCell><CButton color="primary" size="sm" className="me-2">
-                Editar
-              </CButton>
-              <CButton color="danger" size="sm">
-                Borrar
-              </CButton></CTableDataCell>
-
+      <CTableDataCell>
+        <CButton color="primary" size="sm" className="me-2">
+          Editar
+        </CButton>
+        <CButton color="danger" size="sm" onClick={() => setVisible(!visible)}>Delete</CButton>
+              <CModal visible={visible} onClose={() => setVisible(false)} aria-labelledby="LiveDemoExampleLabel">
+                <CModalHeader>
+                  <CModalTitle id="LiveDemoExampleLabel">¿Desea eliminar?</CModalTitle>
+                </CModalHeader>
+                <CModalBody>
+                  <p>Los cambios no podran deshacerse. ¿Desea eliminar?</p>
+                </CModalBody>
+                <CModalFooter>
+                  <CButton color="secondary" onClick={() => setVisible(false)}>
+                      Close
+                 </CButton>
+                <CButton color="primary">Delete</CButton>
+                </CModalFooter>
+                 </CModal>
+        
+      </CTableDataCell>
+              
     </CTableRow>
   </CTableBody>
 </CTable>
+
 </div>
   )
-
-
-
-  
-    
+   
 }
-
-
-
 
 export default users;
