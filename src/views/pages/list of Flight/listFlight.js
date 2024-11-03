@@ -69,45 +69,24 @@ const listFlight = () => {
         
       <div className="row">
         
-  {/* <div className="col-lg-6">
-    <CDateRangePicker
-      startDate="2022/08/03"
-      endDate="2022/08/17"
-      label="Date range"
-      locale="en-US"
-      inputDateParse={(date) => parse(date, 'MMMM dd, yyyy', new Date())}
-      inputDateFormat={(date) => format(new Date(date), 'MMMM dd, yyyy')}
-    />
-  </div>
-  <div className="col-lg-6">
-    <CDateRangePicker
-      startDate="2022/08/03"
-      endDate="2022/08/17"
-      label="Rango de fechas"
-      locale="es-ES"
-      placeholder={['Fecha de inicio', 'Fecha de fin']}
-      inputDateParse={(date) => parse(date, 'yyyy MMMM dd', new Date(), { locale: es })}
-      inputDateFormat={(date) => format(new Date(date), 'yyyy MMMM dd', { locale: es })}
-    />
-  </div> */}
 
 
         <CRow>
           <CCol xs={12}>
             <CCard className="mb-4">
               <CCardHeader>
-                <strong>Lista de Vuelos</strong>
+                <strong>List of flights</strong>
               </CCardHeader>
               <CCardBody>
                 <CTable hover responsive>
                   <CTableHead>
                     <CTableRow>
-                      <CTableHeaderCell scope="col">Aeropuerto de Salida</CTableHeaderCell>
-                      <CTableHeaderCell scope="col">Aeropuerto de Llegada</CTableHeaderCell>
-                      <CTableHeaderCell scope="col">Número de Vuelo</CTableHeaderCell>
-                      <CTableHeaderCell scope="col">Fecha de Salida</CTableHeaderCell>
-                      <CTableHeaderCell scope="col">Hora de Salida</CTableHeaderCell>
-                      <CTableHeaderCell scope="col">Hora de llegada</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Departure airport</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Arrival airport</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Flight number</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Flight Date</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Departure time</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Arrival time</CTableHeaderCell>
                     </CTableRow>
                   </CTableHead>
                   <CTableBody>

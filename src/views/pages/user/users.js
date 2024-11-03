@@ -58,15 +58,15 @@ import {
       <CTableDataCell>Admin</CTableDataCell>
       <CTableDataCell>
       <CButton color="primary" size="sm" className="me-2">
-                Editar
+                Edit
               </CButton>
               <CButton color="danger" size="sm" onClick={() => setVisible(!visible)}>Delete</CButton>
               <CModal visible={visible} onClose={() => setVisible(false)} aria-labelledby="LiveDemoExampleLabel">
                 <CModalHeader>
-                  <CModalTitle id="LiveDemoExampleLabel">¿Desea eliminar?</CModalTitle>
+                  <CModalTitle id="LiveDemoExampleLabel">Do you want to delete?</CModalTitle>
                 </CModalHeader>
                 <CModalBody>
-                  <p>Los cambios no podran deshacerse. ¿Desea eliminar?</p>
+                  <p>Changes cannot be undone. Do you want to delete?</p>
                 </CModalBody>
                 <CModalFooter>
                   <CButton color="secondary" onClick={() => setVisible(false)}>
@@ -86,15 +86,15 @@ import {
       <CTableDataCell>Admin</CTableDataCell>
       <CTableDataCell>
       <CButton color="primary" size="sm" className="me-2">
-                Editar
+                Edit
               </CButton>
               <CButton color="danger" size="sm" onClick={() => setVisible(!visible)}>Delete</CButton>
               <CModal visible={visible} onClose={() => setVisible(false)} aria-labelledby="LiveDemoExampleLabel">
                 <CModalHeader>
-                  <CModalTitle id="LiveDemoExampleLabel">¿Desea eliminar?</CModalTitle>
+                  <CModalTitle id="LiveDemoExampleLabel">Do you want to delete?</CModalTitle>
                 </CModalHeader>
                 <CModalBody>
-                  <p>Los cambios no podran deshacerse. ¿Desea eliminar?</p>
+                  <p>Changes cannot be undone. Do you want to delete?</p>
                 </CModalBody>
                 <CModalFooter>
                   <CButton color="secondary" onClick={() => setVisible(false)}>
@@ -114,15 +114,15 @@ import {
       <CTableDataCell>Admin</CTableDataCell>
       <CTableDataCell>
         <CButton color="primary" size="sm" className="me-2">
-          Editar
+          Edit
         </CButton>
         <CButton color="danger" size="sm" onClick={() => setVisible(!visible)}>Delete</CButton>
               <CModal visible={visible} onClose={() => setVisible(false)} aria-labelledby="LiveDemoExampleLabel">
                 <CModalHeader>
-                  <CModalTitle id="LiveDemoExampleLabel">¿Desea eliminar?</CModalTitle>
+                  <CModalTitle id="LiveDemoExampleLabel">Do you want to delete?</CModalTitle>
                 </CModalHeader>
                 <CModalBody>
-                  <p>Los cambios no podran deshacerse. ¿Desea eliminar?</p>
+                  <p>Changes cannot be undone. Do you want to delete?</p>
                 </CModalBody>
                 <CModalFooter>
                   <CButton color="secondary" onClick={() => setVisible(false)}>

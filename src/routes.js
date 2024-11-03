@@ -19,6 +19,7 @@ const reserves = React.lazy (() => import('./views/pages/reserves/reserves'))
 const payments = React.lazy (() => import('./views/pages/payments/payments'))
 const reports = React.lazy (() => import('./views/pages/reports/reports'))
 const users = React.lazy (() => import ('./views/pages/user/users'))
+const editProfile = React.lazy (() => import ('./views/pages/editProfile/editProfile'))
 
 
 const routes = [
@@ -32,6 +33,7 @@ const routes = [
   { path: '/payments', name: 'Payments', element: payments},
   { path: '/reports', name: 'Reports', element: reports},
   { path: '/users', name: 'Users', element: users},
+  { path: '/editProfile', name: 'Profile', element: editProfile},
   
 ]
 

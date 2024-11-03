@@ -1,84 +1,3 @@
-// import React from "react";
-
-// import {
-// CTable,
-// CTableHead,
-// CTableBody,
-// CTableRow,
-// CTableHeaderCell,
-// CTableDataCell,
-// CFormInput,
-// CButton,
-// } from '@coreui/react'
-
-// const reserves = () => {
-    
-    
-//     return (
-    
-//     <div className="p-4" style={{backgroundColor: null}}>
-//     <CFormInput
-//       type="text"
-//       placeholder="Search for reservation number..."
-     
-//       className="mb-3"
-//     />
-
-
-//   <CTable>
-// <CTableHead>
-//   <CTableRow>
-//     <CTableHeaderCell scope="col">#</CTableHeaderCell>
-//     <CTableHeaderCell scope="col">Reservation Number</CTableHeaderCell>
-//     <CTableHeaderCell scope="col">Info</CTableHeaderCell>
-    
-//   </CTableRow>
-// </CTableHead>
-// <CTableBody>
-//   <CTableRow>
-//     <CTableHeaderCell scope="row">1</CTableHeaderCell>
-//     <CTableDataCell>159</CTableDataCell>
-    
-    
-//     <CTableDataCell>
-//     <CButton color="primary" size="sm" className="me-2">
-//               view
-//             </CButton>
-            
-//     </CTableDataCell>
-   
-//   </CTableRow>
-//   <CTableRow>
-//     <CTableHeaderCell scope="row">2</CTableHeaderCell>
-//     <CTableDataCell>753</CTableDataCell>
-    
-//     <CTableDataCell>
-//     <CButton color="primary" size="sm" className="me-2">
-//               view
-//             </CButton>
-            
-//     </CTableDataCell>
-//   </CTableRow>
-//   <CTableRow>
-//     <CTableHeaderCell scope="row">3</CTableHeaderCell>
-//     <CTableDataCell>852</CTableDataCell>
-    
-//     <CTableDataCell><CButton color="primary" size="sm" className="me-2">
-//               view
-//             </CButton>
-//             </CTableDataCell>
-
-//   </CTableRow>
-// </CTableBody>
-// </CTable>
-// </div>
-// )
-// }
-
-
-// export default reserves
-
-
 import React, { useState } from "react"
 import {
   CTable,
@@ -121,7 +40,7 @@ export default function Reserves() {
     <div className="p-4" style={{backgroundColor: 'none'}}>
       <CFormInput
         type="text"
-        placeholder="Buscar por número de reserva..."
+        placeholder="Search by booking number..."
         className="mb-3"
       />
 
@@ -129,7 +48,7 @@ export default function Reserves() {
         <CTableHead>
           <CTableRow>
             <CTableHeaderCell scope="col">#</CTableHeaderCell>
-            <CTableHeaderCell scope="col">Número de Reserva</CTableHeaderCell>
+            <CTableHeaderCell scope="col">Reservation Number</CTableHeaderCell>
             <CTableHeaderCell scope="col">Info</CTableHeaderCell>
           </CTableRow>
         </CTableHead>
@@ -155,32 +74,62 @@ export default function Reserves() {
 
       <CModal visible={visible} onClose={() => setVisible(false)} size="lg">
         <CModalHeader>
-          <CModalTitle>Detalles de la Reserva</CModalTitle>
+          <CModalTitle>Booking Details</CModalTitle>
         </CModalHeader>
         <CModalBody>
           {selectedReservation && (
             <CCard>
               <CCardBody>
-                <CCardTitle>Factura de Reserva #{selectedReservation.number}</CCardTitle>
+                <CCardTitle>Booking Invoice #{selectedReservation.number}</CCardTitle>
                 <CCardText>
-                  <strong>Fecha:</strong> {selectedReservation.date}
+                  <strong>Date:</strong> {selectedReservation.date}
                 </CCardText>
                 <CCardText>
-                  <strong>Cliente:</strong> {selectedReservation.clientName}
+                  <strong>Customer:</strong> {selectedReservation.clientName}
                 </CCardText>
                 <CListGroup flush>
                   <CListGroupItem>
                     <div className="d-flex justify-content-between">
-                      <span>Servicio de habitación</span>
-                      <span>$100.00</span>
+                      <span>Id flight</span>
+                      <span>159</span>
                     </div>
                   </CListGroupItem>
                   <CListGroupItem>
                     <div className="d-flex justify-content-between">
-                      <span>Servicios adicionales</span>
-                      <span>$50.00</span>
+                      <span>Number of baggage</span>
+                      <span>1599</span>
                     </div>
                   </CListGroupItem>
+
+                  <CListGroupItem>
+                    <div className="d-flex justify-content-between">
+                      <span>Payment Method</span>
+                      <span>card</span>
+                    </div>
+                  </CListGroupItem>
+
+                  <CListGroupItem>
+                    <div className="d-flex justify-content-between">
+                      <span>Arrival Point</span>
+                      <span>Madrid</span>
+                    </div>
+                  </CListGroupItem>
+
+                  <CListGroupItem>
+                    <div className="d-flex justify-content-between">
+                      <span>Departure location</span>
+                      <span>Atenas</span>
+                    </div>
+                  </CListGroupItem>
+
+
+                  <CListGroupItem>
+                    <div className="d-flex justify-content-between">
+                      <span>Flight Time</span>
+                      <span>20:18</span>
+                    </div>
+                  </CListGroupItem>
+
                   <CListGroupItem>
                     <div className="d-flex justify-content-between">
                       <strong>Total</strong>
@@ -194,9 +143,11 @@ export default function Reserves() {
         </CModalBody>
         <CModalFooter>
           <CButton color="secondary" onClick={() => setVisible(false)}>
-            Cerrar
+            Close
           </CButton>
         </CModalFooter>
+
+        
       </CModal>
     </div>
   )
