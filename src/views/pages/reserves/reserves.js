@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import {
   CTable,
   CTableHead,
@@ -18,17 +18,17 @@ import {
   CCardTitle,
   CCardText,
   CListGroup,
-  CListGroupItem
+  CListGroupItem,
 } from '@coreui/react'
 
 export default function Reserves() {
   const [visible, setVisible] = useState(false)
-  const [selectedReservation, setSelectedReservation] = useState(null)
+  const [selectedReservation, setSelectedReservation] = useState({})
 
   const reservations = [
-    { id: 1, number: "159", clientName: "Juan Pérez", date: "2023-05-15", total: 150.00 },
-    { id: 2, number: "753", clientName: "María García", date: "2023-05-16", total: 200.00 },
-    { id: 3, number: "852", clientName: "Carlos Rodríguez", date: "2023-05-17", total: 175.00 },
+    { id: 1, number: '159', clientName: 'Juan Pérez', date: '2023-05-15', total: 150.0 },
+    { id: 2, number: '753', clientName: 'María García', date: '2023-05-16', total: 200.0 },
+    { id: 3, number: '852', clientName: 'Carlos Rodríguez', date: '2023-05-17', total: 175.0 },
   ]
 
   const handleViewClick = (reservation) => {
@@ -37,12 +37,8 @@ export default function Reserves() {
   }
 
   return (
-    <div className="p-4" style={{backgroundColor: 'none'}}>
-      <CFormInput
-        type="text"
-        placeholder="Search by booking number..."
-        className="mb-3"
-      />
+    <div className="p-4" style={{ backgroundColor: 'none' }}>
+      <CFormInput type="text" placeholder="Search by booking number..." className="mb-3" />
 
       <CTable>
         <CTableHead>
@@ -58,9 +54,9 @@ export default function Reserves() {
               <CTableHeaderCell scope="row">{reservation.id}</CTableHeaderCell>
               <CTableDataCell>{reservation.number}</CTableDataCell>
               <CTableDataCell>
-                <CButton 
-                  color="primary" 
-                  size="sm" 
+                <CButton
+                  color="primary"
+                  size="sm"
                   className="me-2"
                   onClick={() => handleViewClick(reservation)}
                 >
@@ -72,7 +68,7 @@ export default function Reserves() {
         </CTableBody>
       </CTable>
 
-      <CModal visible={visible} onClose={() => setVisible(false)} size="lg">
+      <CModal visible={visible} onClose={() => setVisible(true)} size="lg">
         <CModalHeader>
           <CModalTitle>Booking Details</CModalTitle>
         </CModalHeader>
@@ -122,7 +118,6 @@ export default function Reserves() {
                     </div>
                   </CListGroupItem>
 
-
                   <CListGroupItem>
                     <div className="d-flex justify-content-between">
                       <span>Flight Time</span>
@@ -142,12 +137,10 @@ export default function Reserves() {
           )}
         </CModalBody>
         <CModalFooter>
-          <CButton color="secondary" onClick={() => setVisible(false)}>
+          <CButton color="secondary" onClick={() => setVisible(true)}>
             Close
           </CButton>
         </CModalFooter>
-
-        
       </CModal>
     </div>
   )

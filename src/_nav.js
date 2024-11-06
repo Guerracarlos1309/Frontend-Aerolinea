@@ -25,7 +25,6 @@ const _nav = [
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     badge: {
       color: 'info',
-      
     },
   },
   {
@@ -62,27 +61,26 @@ const _nav = [
     to: '/flightManagement',
     icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
   },
-  
-    {
-      component: CNavItem,
-      name: 'Reserves',
-      to: '/reserves',
-      icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
-      },
-  
+
+  {
+    component: CNavItem,
+    name: 'Reserves',
+    to: '/reseves',
+    icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
+  },
+
   {
     component: CNavItem,
     name: 'Payments',
     to: '/payments',
     icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
   },
-  
+
   {
     component: CNavItem,
     name: 'Reports',
     to: '/reports',
     icon: <CIcon icon={cilCalculator} customClassName="nav-icon" />,
-    
   },
 
   {
@@ -90,7 +88,6 @@ const _nav = [
     name: 'Users',
     to: '/users',
     icon: <CIcon icon={cilCalculator} customClassName="nav-icon" />,
-    
   },
   {
     component: CNavTitle,
@@ -116,10 +113,8 @@ const _nav = [
         name: 'Edit profile',
         to: '/editProfile',
       },
-      
     ],
   },
-  
 ]
 
 export default _nav
