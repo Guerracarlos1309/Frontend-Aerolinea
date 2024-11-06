@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from 'react'
+
 import {
   CTable,
   CTableHead,
@@ -21,7 +23,7 @@ import {
   CListGroupItem,
 } from '@coreui/react'
 
-export default function Reserves() {
+const reserves = () => {
   const [visible, setVisible] = useState(false)
   const [selectedReservation, setSelectedReservation] = useState({})
 
@@ -68,73 +70,71 @@ export default function Reserves() {
         </CTableBody>
       </CTable>
 
-      <CModal visible={visible} onClose={() => setVisible(true)} size="lg">
+      <CModal visible={visible} onClose={() => setVisible(false)} size="lg">
         <CModalHeader>
           <CModalTitle>Booking Details</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          {selectedReservation && (
-            <CCard>
-              <CCardBody>
-                <CCardTitle>Booking Invoice #{selectedReservation.number}</CCardTitle>
-                <CCardText>
-                  <strong>Date:</strong> {selectedReservation.date}
-                </CCardText>
-                <CCardText>
-                  <strong>Customer:</strong> {selectedReservation.clientName}
-                </CCardText>
-                <CListGroup flush>
-                  <CListGroupItem>
-                    <div className="d-flex justify-content-between">
-                      <span>Id flight</span>
-                      <span>159</span>
-                    </div>
-                  </CListGroupItem>
-                  <CListGroupItem>
-                    <div className="d-flex justify-content-between">
-                      <span>Number of baggage</span>
-                      <span>1599</span>
-                    </div>
-                  </CListGroupItem>
+          <CCard>
+            <CCardBody>
+              <CCardTitle>Booking Invoice #{selectedReservation.number}</CCardTitle>
+              <CCardText>
+                <strong>Date:</strong> {selectedReservation.date}
+              </CCardText>
+              <CCardText>
+                <strong>Customer:</strong> {selectedReservation.clientName}
+              </CCardText>
+              <CListGroup flush>
+                <CListGroupItem>
+                  <div className="d-flex justify-content-between">
+                    <span>Id flight</span>
+                    <span>159</span>
+                  </div>
+                </CListGroupItem>
+                <CListGroupItem>
+                  <div className="d-flex justify-content-between">
+                    <span>Number of baggage</span>
+                    <span>1599</span>
+                  </div>
+                </CListGroupItem>
 
-                  <CListGroupItem>
-                    <div className="d-flex justify-content-between">
-                      <span>Payment Method</span>
-                      <span>card</span>
-                    </div>
-                  </CListGroupItem>
+                <CListGroupItem>
+                  <div className="d-flex justify-content-between">
+                    <span>Payment Method</span>
+                    <span>card</span>
+                  </div>
+                </CListGroupItem>
 
-                  <CListGroupItem>
-                    <div className="d-flex justify-content-between">
-                      <span>Arrival Point</span>
-                      <span>Madrid</span>
-                    </div>
-                  </CListGroupItem>
+                <CListGroupItem>
+                  <div className="d-flex justify-content-between">
+                    <span>Arrival Point</span>
+                    <span>Madrid</span>
+                  </div>
+                </CListGroupItem>
 
-                  <CListGroupItem>
-                    <div className="d-flex justify-content-between">
-                      <span>Departure location</span>
-                      <span>Atenas</span>
-                    </div>
-                  </CListGroupItem>
+                <CListGroupItem>
+                  <div className="d-flex justify-content-between">
+                    <span>Departure location</span>
+                    <span>Atenas</span>
+                  </div>
+                </CListGroupItem>
 
-                  <CListGroupItem>
-                    <div className="d-flex justify-content-between">
-                      <span>Flight Time</span>
-                      <span>20:18</span>
-                    </div>
-                  </CListGroupItem>
+                <CListGroupItem>
+                  <div className="d-flex justify-content-between">
+                    <span>Flight Time</span>
+                    <span>20:18</span>
+                  </div>
+                </CListGroupItem>
 
-                  <CListGroupItem>
-                    <div className="d-flex justify-content-between">
-                      <strong>Total</strong>
-                      <strong>${selectedReservation.total.toFixed(2)}</strong>
-                    </div>
-                  </CListGroupItem>
-                </CListGroup>
-              </CCardBody>
-            </CCard>
-          )}
+                <CListGroupItem>
+                  <div className="d-flex justify-content-between">
+                    <strong>Total</strong>
+                    <strong>{selectedReservation.total}</strong>
+                  </div>
+                </CListGroupItem>
+              </CListGroup>
+            </CCardBody>
+          </CCard>
         </CModalBody>
         <CModalFooter>
           <CButton color="secondary" onClick={() => setVisible(true)}>
@@ -145,3 +145,5 @@ export default function Reserves() {
     </div>
   )
 }
+
+export default reserves

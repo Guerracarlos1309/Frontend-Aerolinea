@@ -12,7 +12,10 @@ import {
   CModalTitle,
   CModalBody,
   CModalFooter,
+  CFormInput,
 } from '@coreui/react'
+
+import { useState } from 'react'
 
 const users = () => {
   const [visible, setVisible] = useState(false)

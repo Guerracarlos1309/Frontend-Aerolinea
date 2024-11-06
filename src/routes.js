@@ -1,5 +1,6 @@
 import { element } from 'prop-types'
 import React from 'react'
+
 // import { recruitment } from './views/pages/Recruitment/recruitment'
 // import { performanceEvaluation } from './views/pages/Performance Evaluation/performanceEvaluation'
 // import { listFlight } from './views/pages/list of Flight/listFlight'
@@ -22,6 +23,7 @@ const payments = React.lazy(() => import('./views/pages/payments/payments'))
 const reports = React.lazy(() => import('./views/pages/reports/reports'))
 const users = React.lazy(() => import('./views/pages/user/users'))
 const editProfile = React.lazy(() => import('./views/pages/editProfile/editProfile'))
+const reserves = React.lazy(() => import('./views/pages/reserves/reserves'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -30,7 +32,7 @@ const routes = [
   { path: '/performanceEvaluation', name: 'RerformanceEvaluation', element: performanceEvaluation },
   { path: '/listFlight', name: 'ListFlight', element: listFlight },
   { path: '/flightManagement', name: 'FlightManagement', element: flightManagement },
-  { path: '/', name: 'Reserves', element: reserves },
+  { path: '/reserves', name: 'Reserves', element: reserves },
   { path: '/payments', name: 'Payments', element: payments },
   { path: '/reports', name: 'Reports', element: reports },
   { path: '/users', name: 'Users', element: users },
