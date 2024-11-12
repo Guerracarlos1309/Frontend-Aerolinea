@@ -137,7 +137,7 @@ const reserves = () => {
           </CCard>
         </CModalBody>
         <CModalFooter>
-          <CButton color="secondary" onClick={() => setVisible(true)}>
+          <CButton color="secondary" onClick={() => setVisible(false)}>
             Close
           </CButton>
         </CModalFooter>

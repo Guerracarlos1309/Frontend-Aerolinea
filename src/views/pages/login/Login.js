@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   CButton,
@@ -12,23 +12,30 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
+  CModal,
+  CModalHeader,
+  CModalTitle,
+  CModalBody,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
-import { color } from 'chart.js/helpers'
 
 const Login = () => {
+  const [visibleLg, setVisibleLg] = useState(false)
+
   return (
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={8}>
             <CCardGroup>
-              <CCard className="p-4" style={{backgroundColor: 'rgba(255, 189, 115, 1)'}}>
+              <CCard className="p-4" style={{ backgroundColor: 'rgba(255, 189, 115, 1)' }}>
                 <CCardBody>
                   <CForm>
-                    <h1 id='negro'>Login</h1>
-                    <p id='negro' className="text-body-secondary" >Sign In to your account</p>
+                    <h1 id="negro">Login</h1>
+                    <p id="negro" className="text-body-secondary">
+                      Sign In to your account
+                    </p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
@@ -47,29 +54,46 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton id='buttomLogin'color="primary" className="px-4">
+                        <CButton id="buttomLogin" color="primary" className="px-4">
                           Login
                         </CButton>
                       </CCol>
                       <CCol xs={6} className="text-right">
-                        <CButton color="black" id='negro' className="px-0">
-                          Forgot password?
-                        </CButton>
+                        <Link to="/resetPassword">
+                          <CButton
+                            color="black"
+                            id="negro"
+                            className="px-0"
+                            onClick={() => setVisibleLg(!visibleLg)}
+                          >
+                            Forgot password?
+                          </CButton>
+                        </Link>
                       </CCol>
                     </CRow>
                   </CForm>
                 </CCardBody>
               </CCard>
-              <CCard id='loginDerecho' className="text-white bg-primary py-5" style={{ width: '44%', backgroundColor:'red'}}>
+              <CCard
+                id="loginDerecho"
+                className="text-white bg-primary py-5"
+                style={{ width: '44%', backgroundColor: 'red' }}
+              >
                 <CCardBody className="text-center">
                   <div>
-                    <h2 id='negro'>Sign up</h2>
-                    <p id='negro'>
+                    <h2 id="negro">Sign up</h2>
+                    <p id="negro">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                     <Link to="/register">
-                      <CButton id='buttomLogin' color="primary" className="mt-3" active tabIndex={-1}>
+                      <CButton
+                        id="buttomLogin"
+                        color="primary"
+                        className="mt-3"
+                        active
+                        tabIndex={-1}
+                      >
                         Register Now!
                       </CButton>
                     </Link>

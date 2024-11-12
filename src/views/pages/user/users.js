@@ -65,7 +65,9 @@ const users = () => {
                   <CButton color="secondary" onClick={() => setVisible(false)}>
                     Close
                   </CButton>
-                  <CButton color="primary">Delete</CButton>
+                  <CButton color="primary" onClick={() => setVisible(false)}>
+                    Delete
+                  </CButton>
                 </CModalFooter>
               </CModal>
             </CTableDataCell>
@@ -98,7 +100,9 @@ const users = () => {
                   <CButton color="secondary" onClick={() => setVisible(false)}>
                     Close
                   </CButton>
-                  <CButton color="primary">Delete</CButton>
+                  <CButton color="primary" onClick={() => setVisible(false)}>
+                    Delete
+                  </CButton>
                 </CModalFooter>
               </CModal>
             </CTableDataCell>
@@ -131,7 +135,9 @@ const users = () => {
                   <CButton color="secondary" onClick={() => setVisible(false)}>
                     Close
                   </CButton>
-                  <CButton color="primary">Delete</CButton>
+                  <CButton color="primary" onClick={() => setVisible(false)}>
+                    Delete
+                  </CButton>
                 </CModalFooter>
               </CModal>
             </CTableDataCell>
