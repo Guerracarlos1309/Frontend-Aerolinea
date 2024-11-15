@@ -28,8 +28,22 @@ const reserves = () => {
   const [selectedReservation, setSelectedReservation] = useState({})
 
   const reservations = [
-    { id: 1, number: '159', clientName: 'Juan Pérez', date: '2023-05-15', total: 150.0 },
-    { id: 2, number: '753', clientName: 'María García', date: '2023-05-16', total: 200.0 },
+    {
+      id: 1,
+      number: '159',
+      clientName: 'Juan Pérez',
+      date: '2023-05-15',
+      total: 150.0,
+      numberBabagge: '1599',
+    },
+    {
+      id: 2,
+      number: '753',
+      clientName: 'María García',
+      date: '2023-05-16',
+      total: 200.0,
+      numberBabagge: '1220',
+    },
     { id: 3, number: '852', clientName: 'Carlos Rodríguez', date: '2023-05-17', total: 175.0 },
   ]
 
@@ -93,8 +107,8 @@ const reserves = () => {
                 </CListGroupItem>
                 <CListGroupItem>
                   <div className="d-flex justify-content-between">
-                    <span>Number of baggage</span>
-                    <span>1599</span>
+                    <strong>Number of babbage:</strong>
+                    {selectedReservation.numberBabagge}
                   </div>
                 </CListGroupItem>
 

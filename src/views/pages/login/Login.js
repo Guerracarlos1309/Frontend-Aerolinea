@@ -16,12 +16,15 @@ import {
   CModalHeader,
   CModalTitle,
   CModalBody,
+  CModalFooter,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const Login = () => {
   const [visibleLg, setVisibleLg] = useState(false)
+  const [visiblePass, setVisiblePass] = useState(false)
+  const [visibleCont, setVisibleCont] = useState(false)
 
   return (
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
@@ -59,16 +62,92 @@ const Login = () => {
                         </CButton>
                       </CCol>
                       <CCol xs={6} className="text-right">
-                        <Link to="/resetPassword">
-                          <CButton
-                            color="black"
-                            id="negro"
-                            className="px-0"
-                            onClick={() => setVisibleLg(!visibleLg)}
-                          >
-                            Forgot password?
-                          </CButton>
-                        </Link>
+                        <CButton
+                          color="black"
+                          id="negro"
+                          className="px-0"
+                          onClick={() => setVisiblePass(!visibleLg)}
+                        >
+                          Forgot password?
+                        </CButton>
+
+                        <CModal
+                          alignment="center"
+                          scrollable
+                          visible={visiblePass}
+                          onClose={() => setVisiblePass(false)}
+                          aria-labelledby="VerticallyCenteredScrollableExample2"
+                        >
+                          <CModalHeader>
+                            <CModalTitle id="VerticallyCenteredScrollableExample2">
+                              Reset password
+                            </CModalTitle>
+                          </CModalHeader>
+                          <CModalBody>
+                            <div>
+                              <strong>
+                                Si Has olvidado tu contraseña ingresa tu direccion de correo
+                                electronico para restablecerla
+                              </strong>
+                              <CFormInput
+                                type="text"
+                                placeholder="Ingresa tu correo o numero de telefono"
+                                aria-label="default input example"
+                                style={{ marginTop: 20 }}
+                              />
+                            </div>
+                          </CModalBody>
+                          <CModalFooter>
+                            <CButton color="secondary" onClick={() => setVisiblePass(false)}>
+                              Close
+                            </CButton>
+                            <CButton
+                              color="primary"
+                              onClick={() => setVisibleCont(true)}
+                              onClose={() => setVisiblePass(false)}
+                            >
+                              Continue
+                            </CButton>
+
+                            <CModal
+                              alignment="center"
+                              scrollable
+                              visible={visibleCont}
+                              onClose={() => {
+                                setVisibleCont(false)
+                                setVisiblePass(false)
+                              }}
+                              aria-labelledby="VerticallyCenteredScrollableExample2"
+                            >
+                              <CModalHeader>
+                                <CModalTitle id="VerticallyCenteredScrollableExample2">
+                                  Ingresa el codigo de verificacion
+                                </CModalTitle>
+                              </CModalHeader>
+                              <CModalBody>
+                                <strong>
+                                  {' '}
+                                  Ingresa el codigo que te ha llegado a tu correo para poder
+                                  ingresar al sistema y que puedas cambiar tu contraseña
+                                </strong>
+                                <CFormInput
+                                  type="text-6"
+                                  placeholder="Codigo de 6 digitos"
+                                  aria-label="default input example"
+                                  style={{ marginTop: 20 }}
+                                />
+                              </CModalBody>
+                              <CModalFooter>
+                                <CButton color="secondary" onClick={() => setVisibleCont(false)}>
+                                  Close
+                                </CButton>
+                                <CButton color="primary" onClick={() => setVisibleCont(false)}>
+                                  Save changes
+                                </CButton>
+                              </CModalFooter>
+                            </CModal>
+                          </CModalFooter>
+                        </CModal>
                       </CCol>
                     </CRow>
                   </CForm>
