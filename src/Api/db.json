@@ -1,0 +1,82 @@
+{
+  "Flights": [
+    {
+      "id": "1",
+      "numeroVuelo": "BA178",
+      "aerolinea": "American Airlines",
+      "fechaSalida": "2023-06-15",
+      "fechaLlegada": "2023-06-15",
+      "horaSalida": "08:00",
+      "horaLlegada": "16:00",
+      "Salida": "Nueva York (JFK)",
+      "destino": "London (LHR)",
+      "status": "En espera"
+    },
+    {
+      "id": "2",
+      "numeroVuelo": "JL015",
+      "aerolinea": "American Airlines",
+      "fechaSalida": "2023-06-15",
+      "fechaLlegada": "2023-06-15",
+      "horaSalida": "10:00",
+      "horaLlegada": "03:00",
+      "Salida": "Los Angeles (LAX)",
+      "destino": "Tokio (NRT)",
+      "status": "Retrasado"
+    },
+    {
+      "id": "3",
+      "numeroVuelo": "EK032",
+      "aerolinea": "American Airlines",
+      "fechaSalida": "2023-06-16",
+      "fechaLlegada": "2023-06-16",
+      "horaSalida": "10:00",
+      "horaLlegada": "22:00",
+      "Salida": "Paris (CDG)",
+      "destino": "Dubai (DXB)",
+      "status": "cancelado"
+    },
+    {
+      "id": "4",
+      "numeroVuelo": "SQ232",
+      "aerolinea": "American Airlines",
+      "fechaSalida": "2023-06-15",
+      "fechaLlegada": "2023-06-15",
+      "horaSalida": "14:00",
+      "horaLlegada": "19:00",
+      "Salida": "Sydney (SYD)",
+      "destino": "Singapoure (SIN)",
+      "status": "En vuelo"
+    },
+    {
+      "id": "5",
+      "numeroVuelo": "IB6824",
+      "aerolinea": "American Airlines",
+      "fechaSalida": "2023-06-17",
+      "fechaLlegada": "2023-06-18",
+      "horaSalida": "20:00",
+      "horaLlegada": "70:00",
+      "Salida": "Madrid (MAD)",
+      "destino": "Sao Paulo (GRU)",
+      "status": "cancelado"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Carlos Guerra",
+      "email": "geurracarlos1309@gmail.com",
+      "phoneNumber": "4247842726",
+      "address": "crodero",
+      "role": "Admin"
+    },
+    {
+      "id": "2",
+      "name": "Rossy Chacon",
+      "email": "rossychacon30@gmail.com",
+      "phoneNumber": "4247370080",
+      "address": "crodero",
+      "role": "Admin"
+    }
+  ]
+}

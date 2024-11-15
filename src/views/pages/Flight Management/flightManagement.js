@@ -1,4 +1,4 @@
-import { react, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   CRow,
   CCol,
@@ -22,77 +22,51 @@ import {
   CCardText,
   CListGroup,
   CListGroupItem,
+  CForm,
 } from '@coreui/react'
 
 const flightManagement = () => {
   const [visible, setVisible] = useState(false)
-  const [showModalEditar, setShowModalEditar] = useState(false)
-  const [selectedFlight, setSelectedFlight] = useState({})
+  const [flights, setFlights] = useState([])
+  const [flightToEdit, setFlightToEdit] = useState(null)
+  const [editVisible, setEditVisible] = useState(false)
+  const [flightDelete, setFlightDelete] = useState(null)
+  const [flightVisible, setFlightVisible] = useState(false)
 
-  const flightViewClick = (MFlights) => {
-    setSelectedFlight(MFlights)
+  useEffect(() => {
+    fetchFlights()
+  }, [])
+
+  const fetchFlights = async () => {
+    try {
+      const response = await fetch('http://localhost:3004/Flights')
+      const data = await response.json()
+      setFlights(data)
+    } catch (error) {
+      console.error('Error fetching users:', error)
+    }
   }
 
-  const flights = [
-    {
-      id: 1,
-      flightNumber: 'BA178',
-      from: 'Madrid',
-      toward: 'barcelona',
-      status: 'En espera',
-    },
-    {
-      id: 2,
-      flightNumber: 'JL015',
-      from: 'Madrid',
-      toward: 'Bogota',
-      status: 'Retrasado',
-    },
-    {
-      id: 3,
-      flightNumber: 'EK032',
-      from: 'Turin',
-      toward: 'barcelona',
-      status: 'Cancelado',
-    },
-    {
-      id: 4,
-      flightNumber: 'SQ232',
-      from: 'Atenas',
-      toward: 'Caracas',
-      status: 'En vuelo',
-    },
-    {
-      id: 5,
-      flightNumber: 'IB6824',
-      from: 'Barcelona',
-      toward: 'Munchen',
-      status: 'Cancelado',
-    },
-  ]
+  const deleteFlight = async (id) => {
+    try {
+      await fetch(`http://localhost:3004/Flights/${id}`, {
+        method: 'DELETE',
+      })
+      setFlights(flights.filter((flight) => flight.id !== id))
+      setVisible(false)
+    } catch (error) {
+      console.error('Error deleting user:', error)
+    }
+  }
 
-  const MFlights = [
-    {
-      id: 1,
-      flightNumber: '12',
-      horaSalida: '10:00',
-      horaLlegada: '15:00',
-      tipoVuelo: 'privado',
-      aeropuertoSalida: 'cordero',
-      aeropuertoLlegada: 'san cristobal',
-      pilot: 'daniel',
-    },
-    {
-      id: 2,
-      flightNumber: '13',
-      horaSalida: '20:00',
-      horaLlegada: '02:00',
-      tipoVuelo: 'comercial',
-      aeropuertoSalida: 'cucuta',
-      aeropuertoLlegada: 'caracas',
-      pilot: 'daniel',
-    },
-  ]
+  const editFlight = (e) => {
+    e.preventDefault()
+    setFlights(flights.map((flight) => (flight.id === flightToEdit.id ? flightToEdit : flight)))
+    setEditVisible(false)
+
+    console.log(`Vuelo con ID ${flightToEdit.id} actualizado`)
+  }
+
   return (
     <div className="row">
       <CRow>
@@ -112,23 +86,23 @@ const flightManagement = () => {
                   </CTableRow>
                 </CTableHead>
                 <CTableBody>
-                  {flights.map((flight) => (
-                    <CTableRow key={flight.id}>
-                      <CTableDataCell>{flight.flightNumber}</CTableDataCell>
-                      <CTableDataCell>{flight.from}</CTableDataCell>
-                      <CTableDataCell>{flight.toward}</CTableDataCell>
-                      <CTableDataCell>{flight.status}</CTableDataCell>
+                  {flights.map((Flight) => (
+                    <CTableRow key={Flight.id}>
+                      <CTableDataCell>{Flight.numeroVuelo}</CTableDataCell>
+                      <CTableDataCell>{Flight.Salida}</CTableDataCell>
+                      <CTableDataCell>{Flight.destino}</CTableDataCell>
+                      <CTableDataCell>{Flight.status}</CTableDataCell>
                       <CButton
                         style={{ marginLeft: 20, padding: 5 }}
                         color="info"
-                        onClick={() => flightViewClick()}
+                        onClick={() => setFlightVisible(true)}
                       >
                         Info
                       </CButton>
 
                       <CModal
-                        visible={selectedFlight}
-                        onClose={() => flightViewClick(false)}
+                        visible={flightVisible}
+                        onClose={() => setFlightVisible(false)}
                         size="lg"
                       >
                         <CModalHeader>
@@ -137,13 +111,9 @@ const flightManagement = () => {
                         <CModalBody>
                           <CCard>
                             <CCardBody>
-                              <CCardTitle>Vuelo Numero: #{}</CCardTitle>
-                              <CCardText>
-                                <strong>Date:</strong> {}
-                              </CCardText>
-                              <CCardText>
-                                <strong>Pilot:</strong> {}
-                              </CCardText>
+                              {flights.map((Flight) => (
+                                <CCardTitle>Vuelo Numero: #{Flight.numeroVuelo}</CCardTitle>
+                              ))}
                               <CListGroup flush>
                                 <CListGroupItem>
                                   <div className="d-flex justify-content-between">
@@ -189,7 +159,7 @@ const flightManagement = () => {
                           </CCard>
                         </CModalBody>
                         <CModalFooter>
-                          <CButton color="secondary" onClick={() => setVisible(false)}>
+                          <CButton color="secondary" onClick={() => setFlightVisible(false)}>
                             Close
                           </CButton>
                         </CModalFooter>
@@ -198,7 +168,10 @@ const flightManagement = () => {
                       <CButton
                         style={{ marginLeft: 20, padding: 5 }}
                         color="success"
-                        onClick={() => setShowModalEditar(true)}
+                        onClick={() => {
+                          setFlightToEdit(Flight)
+                          setEditVisible(true)
+                        }}
                       >
                         Edit
                       </CButton>
@@ -206,8 +179,8 @@ const flightManagement = () => {
                       <CModal
                         alignment="center"
                         scrollable
-                        visible={showModalEditar}
-                        onClose={() => setShowModalEditar(false)}
+                        visible={editVisible}
+                        onClose={() => setEditVisible(false)}
                         aria-labelledby="VerticallyCenteredScrollableExample2"
                       >
                         <CModalHeader>
@@ -216,80 +189,64 @@ const flightManagement = () => {
                           </CModalTitle>
                         </CModalHeader>
                         <CModalBody>
-                          <div style={{ display: 'flex' }}>
-                            <CFormInput
-                              type="text"
-                              placeholder="Flight Number"
-                              aria-label="default input example"
-                              style={{ width: 200, margin: 6 }}
-                            />
-                            <CFormInput
-                              type="text"
-                              placeholder="Departure"
-                              aria-label="default input example"
-                              style={{ width: 200, margin: 6 }}
-                            />
-                          </div>
-
-                          <div style={{ display: 'flex' }}>
-                            <CFormInput
-                              type="text"
-                              placeholder="Arrivel time"
-                              aria-label="default input example"
-                              style={{ width: 200, margin: 6 }}
-                            />
-                            <CFormInput
-                              type="text"
-                              placeholder="Departure time"
-                              aria-label="default input example"
-                              style={{ width: 200, margin: 6 }}
-                            />
-                          </div>
-
-                          <CFormInput
-                            type="text"
-                            placeholder="Flight Status"
-                            aria-label="default input example"
-                            style={{ width: 200, margin: 6 }}
-                          />
+                          <CForm onSubmit={editFlight}>
+                            <div className="mb-3">
+                              <CFormInput
+                                type="text"
+                                id="name"
+                                label="Status"
+                                value={flightToEdit?.status || ''}
+                                onChange={(e) =>
+                                  setFlightToEdit({ ...flightToEdit, status: e.target.value })
+                                }
+                                placeholder="Flight Status"
+                                style={{ width: 200, margin: 6 }}
+                              />
+                            </div>
+                            <CModalFooter style={{ marginTop: 20 }}>
+                              <CButton color="primary" type="submit">
+                                Save changes
+                              </CButton>
+                            </CModalFooter>
+                          </CForm>
                         </CModalBody>
-                        <CModalFooter>
-                          <CButton color="secondary" onClick={() => setShowModalEditar(false)}>
-                            Close
-                          </CButton>
-                          <CButton color="primary">Save changes</CButton>
-                        </CModalFooter>
                       </CModal>
 
                       <CButton
                         style={{ marginLeft: 20, padding: 5 }}
                         color="danger"
-                        onClick={() => setVisible(true)}
+                        onClick={() => {
+                          setFlightDelete(Flight.id)
+                          setVisible(true)
+                        }}
                       >
+                        {''}
                         Delete
                       </CButton>
-                      <CModal
-                        visible={visible}
-                        onClose={() => setVisible(false)}
-                        aria-labelledby="LiveDemoExampleLabel"
-                      >
-                        <CModalHeader>
-                          <CModalTitle id="LiveDemoExampleLabel">
-                            Do you want to delete?
-                          </CModalTitle>
-                        </CModalHeader>
-                        <CModalBody>
-                          <p>Changes cannot be undone. Do you want to delete?</p>
-                        </CModalBody>
-                        <CModalFooter>
-                          <CButton color="secondary" onClick={() => setVisible(false)}>
-                            Close
-                          </CButton>
-                          <CButton color="primary" onClick={() => setVisible(false)}>
-                            Delete
-                          </CButton>
-                        </CModalFooter>
-                      </CModal>
+                      {visible && (
+                        <CModal
+                          visible={visible}
+                          onClose={() => setVisible(false)}
+                          aria-labelledby="LiveDemoExampleLabel"
+                        >
+                          <CModalHeader>
+                            <CModalTitle id="LiveDemoExampleLabel">
+                              Do you want to delete?
+                            </CModalTitle>
+                          </CModalHeader>
+                          <CModalBody>
+                            <p>Changes cannot be undone. Do you want to delete?</p>
+                          </CModalBody>
+                          <CModalFooter>
+                            <CButton color="secondary" onClick={() => setVisible(false)}>
+                              Close
+                            </CButton>
+                            <CButton color="primary" onClick={() => deleteFlight(flightDelete)}>
+                              Delete
+                            </CButton>
+                          </CModalFooter>
+                        </CModal>
+                      )}
                     </CTableRow>
                   ))}
                 </CTableBody>
