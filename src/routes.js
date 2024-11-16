@@ -15,6 +15,8 @@ const reports = React.lazy(() => import('./views/pages/reports/reports'))
 const users = React.lazy(() => import('./views/pages/user/users'))
 const editProfile = React.lazy(() => import('./views/pages/editProfile/editProfile'))
 const reserves = React.lazy(() => import('./views/pages/reserves/reserves'))
+const recruitmentFlights = React.lazy(() => import('./views/pages/Recruitment/recruitmentFlight'))
+const recruitmentCrew = React.lazy(() => import('./views/pages/Recruitment/recruitmentCrew'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -28,6 +30,8 @@ const routes = [
   { path: '/reports', name: 'Reports', element: reports },
   { path: '/users', name: 'Users', element: users },
   { path: '/editProfile', name: 'Profile', element: editProfile },
+  { path: '/recruitmentFlights', name: 'Recruitment Flights', element: recruitmentFlights },
+  { path: '/recruitmentCrew', name: 'Recruitment Crew', element: recruitmentCrew },
 ]
 
 export default routes

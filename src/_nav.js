@@ -32,10 +32,23 @@ const _nav = [
     name: 'Personnel Management',
   },
   {
-    component: CNavItem,
+    component: CNavGroup,
     name: 'Recruitment',
     to: '/recruitment',
     icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
+    items: [
+      { component: CNavItem, name: 'Recruitment Users', to: '/recruitment' },
+      {
+        component: CNavItem,
+        name: 'recruitment Flight',
+        to: '/recruitmentFlights',
+      },
+      {
+        component: CNavItem,
+        name: 'recruitment Crew',
+        to: '/recruitmentCrew',
+      },
+    ],
   },
   {
     component: CNavItem,

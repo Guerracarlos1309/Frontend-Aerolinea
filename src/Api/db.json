@@ -77,6 +77,85 @@
       "phoneNumber": "4247370080",
       "address": "crodero",
       "role": "Admin"
+    },
+    {
+      "id": "3",
+      "name": "Rossy Chacon",
+      "email": "rossychacon30@gmail.com",
+      "phoneNumber": "4247370080",
+      "address": "crodero",
+      "role": "Admin"
+    },
+    {
+      "id": "4",
+      "name": "Rossy Chacon",
+      "email": "rossychacon30@gmail.com",
+      "phoneNumber": "4247370080",
+      "address": "crodero",
+      "role": "Admin"
+    },
+    {
+      "id": "5",
+      "name": "Rossy Chacon",
+      "email": "rossychacon30@gmail.com",
+      "phoneNumber": "4247370080",
+      "address": "crodero",
+      "role": "Admin"
+    },
+    {
+      "id": "6",
+      "name": "Rossy Chacon",
+      "email": "rossychacon30@gmail.com",
+      "phoneNumber": "4247370080",
+      "address": "crodero",
+      "role": "Admin"
+    },
+    {
+      "id": "7",
+      "name": "Rossy Chacon",
+      "email": "rossychacon30@gmail.com",
+      "phoneNumber": "4247370080",
+      "address": "crodero",
+      "role": "Admin"
+    },
+    {
+      "id": "8",
+      "name": "daniel",
+      "email": "dani12@sad",
+      "phoneNumber": "4245412555",
+      "address": "tachira",
+      "role": "admin"
+    }
+  ],
+  "plane": [
+    {
+      "id": "1",
+      "tuition": "132209",
+      "name": "plane1",
+      "passengerCapacity": "150",
+      "flightHours": "2250",
+      "status": "pa volar"
+    },
+    {
+      "id": "2",
+      "tuition": "sdadasas",
+      "name": "ass",
+      "passengerCapacity": "sadasdsd",
+      "flightHours": "adssdaasd",
+      "status": "adsasdsda"
+    }
+  ],
+  "crew": [
+    {
+      "id": "1",
+      "license": "123456",
+      "name": "daniel",
+      "birthdate": "16/05/2004",
+      "speciality": "Pilot",
+      "flightHours": "1500",
+      "email": "guerracarlos1309@gmail.com",
+      "phoneNumber": "4245412555",
+      "address": "tachira"
     }
   ]
 }

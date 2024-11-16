@@ -1,39 +1,39 @@
 import React, { useState } from 'react'
 import { CForm, CFormInput, CButton } from '@coreui/react'
 
-const recruitment = ({ onPersonAdded }) => {
-  const [name, setNombre] = useState('')
-  const [email, setEmail] = useState('')
+const recruitmentFlights = ({ onPlaneAdded }) => {
+  const [tuition, setTuition] = useState('')
+  const [name, setName] = useState('')
   const [id, setId] = useState('')
-  const [phoneNumber, setPhone] = useState('')
-  const [address, setaddress] = useState('')
-  const [role, setrole] = useState('')
+  const [passengerCapacity, setPassengerCapacity] = useState('')
+  const [flightHours, setFlightHours] = useState('')
+  const [status, setStatus] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch('http://localhost:3004/users', {
+      const response = await fetch('http://localhost:3004/plane', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, id, phoneNumber, address, role }),
+        body: JSON.stringify({ tuition, name, id, passengerCapacity, flightHours, status }),
       })
 
       if (!response.ok) {
         throw new Error('Error en la respuesta del servidor')
       }
 
-      const newPerson = await response.json()
-      setNombre('')
-      setEmail('')
+      const newPlane = await response.json()
+      setTuition('')
+      setName('')
       setId('')
-      setPhone('')
-      setaddress('')
-      setrole('')
+      setPassengerCapacity('')
+      setFlightHours('')
+      setStatus('')
       alert('Persona añadida con éxito')
-      if (onPersonAdded) {
-        onPersonAdded(newPerson)
+      if (onPlaneAdded) {
+        onPersonAdded(newPlane)
       }
     } catch (error) {
       console.error('Error al añadir persona:', error)
@@ -59,43 +59,43 @@ const recruitment = ({ onPersonAdded }) => {
           id="nombre"
           label="Nombre"
           value={name}
-          onChange={(e) => setNombre(e.target.value)}
-          required
-          className="mb-3"
-        />
-        <CFormInput
-          type="email"
-          id="email"
-          label="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="mb-3"
-        />
-        <CFormInput
-          type="tel"
-          id="tel"
-          label="phoneNumber"
-          value={phoneNumber}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
           required
           className="mb-3"
         />
         <CFormInput
           type="text"
-          id="address"
-          label="address"
-          value={address}
-          onChange={(e) => setaddress(e.target.value)}
+          id="tuition"
+          label="tuition"
+          value={tuition}
+          onChange={(e) => setTuition(e.target.value)}
           required
           className="mb-3"
         />
         <CFormInput
           type="text"
-          id="role"
-          label="role"
-          value={role}
-          onChange={(e) => setrole(e.target.value)}
+          id="passengerCapacity"
+          label="passengerCapacity"
+          value={passengerCapacity}
+          onChange={(e) => setPassengerCapacity(e.target.value)}
+          required
+          className="mb-3"
+        />
+        <CFormInput
+          type="text"
+          id="flightHours"
+          label="flightHours"
+          value={flightHours}
+          onChange={(e) => setFlightHours(e.target.value)}
+          required
+          className="mb-3"
+        />
+        <CFormInput
+          type="text"
+          id="status"
+          label="status"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
           required
           className="mb-3"
         />
@@ -107,4 +107,4 @@ const recruitment = ({ onPersonAdded }) => {
   )
 }
 
-export default recruitment
+export default recruitmentFlights
