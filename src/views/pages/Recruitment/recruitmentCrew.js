@@ -47,7 +47,7 @@ const recruitmentCrew = ({ onCrewAdded }) => {
       setEmail('')
       setPhoneNumber('')
       setaddress('')
-      alert('Persona añadida con éxito')
+      alert('Crew added successfully')
       if (onCrewAdded) {
         onPersonAdded(newCrew)
       }

@@ -31,7 +31,7 @@ const recruitmentFlights = ({ onPlaneAdded }) => {
       setPassengerCapacity('')
       setFlightHours('')
       setStatus('')
-      alert('Persona añadida con éxito')
+      alert('Plane added successfully')
       if (onPlaneAdded) {
         onPersonAdded(newPlane)
       }

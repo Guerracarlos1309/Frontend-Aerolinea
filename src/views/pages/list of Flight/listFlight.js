@@ -16,53 +16,6 @@ import {
 } from '@coreui/react'
 
 const listFlight = () => {
-  /*const flights = [
-    {
-      id: 1,
-      departure: 'New York (JFK)',
-      arrival: 'London (LHR)',
-      flightNumber: 'BA178',
-      date: '2023-06-15',
-      arrivalTime: '8:00',
-      arrivalDeparture: '18:00',
-    },
-    {
-      id: 2,
-      departure: 'Los Angeles (LAX)',
-      arrival: 'Tokyo (NRT)',
-      flightNumber: 'JL015',
-      date: '2023-06-15',
-      arrivalTime: '10:00',
-      arrivalDeparture: '03:00',
-    },
-    {
-      id: 3,
-      departure: 'Paris (CDG)',
-      arrival: 'Dubai (DXB)',
-      flightNumber: 'EK032',
-      date: '2023-06-16',
-      arrivalTime: '10:00',
-      arrivalDeparture: '22:00',
-    },
-    {
-      id: 4,
-      departure: 'Sydney (SYD)',
-      arrival: 'Singapore (SIN)',
-      flightNumber: 'SQ232',
-      date: '2023-06-16',
-      arrivalTime: '14:00',
-      arrivalDeparture: '19:00',
-    },
-    {
-      id: 5,
-      departure: 'Madrid (MAD)',
-      arrival: 'São Paulo (GRU)',
-      flightNumber: 'IB6824',
-      date: '2023-06-17',
-      arrivalTime: '20:00',
-      arrivalDeparture: '07:00',
-    },
-  ]*/
   const [flight, setListFlights] = useState([])
 
   useEffect(() => {

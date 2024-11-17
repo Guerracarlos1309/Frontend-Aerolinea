@@ -23,15 +23,29 @@ import {
   CListGroup,
   CListGroupItem,
   CForm,
+  CFormLabel,
+  CFormTextarea,
+  CContainer,
 } from '@coreui/react'
+import { Alert } from '@coreui/coreui'
 
-const flightManagement = () => {
+const flightManagement = (onFlightAdded) => {
   const [visible, setVisible] = useState(false)
   const [flights, setFlights] = useState([])
   const [flightToEdit, setFlightToEdit] = useState(null)
   const [editVisible, setEditVisible] = useState(false)
   const [flightDelete, setFlightDelete] = useState(null)
   const [flightVisible, setFlightVisible] = useState(false)
+  const [id, setId] = useState('')
+  const [numeroVuelo, setNumeroVuelo] = useState('')
+  const [aerolinea, setAerolinea] = useState('')
+  const [fechaSalida, setFechaSalida] = useState('')
+  const [fechaLlegada, setFechaLlegada] = useState('')
+  const [horaSalida, setHoraSalida] = useState('')
+  const [horaLlegada, setHoraLlegada] = useState('')
+  const [Salida, setSalida] = useState('')
+  const [destino, setDestino] = useState('')
+  const [status, setStatus] = useState('')
 
   useEffect(() => {
     fetchFlights()
@@ -65,6 +79,51 @@ const flightManagement = () => {
     setEditVisible(false)
 
     console.log(`Vuelo con ID ${flightToEdit.id} actualizado`)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await fetch('http://localhost:3004/Flights', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          id,
+          numeroVuelo,
+          aerolinea,
+          fechaSalida,
+          fechaLlegada,
+          horaSalida,
+          horaLlegada,
+          Salida,
+          destino,
+          status,
+        }),
+      })
+      if (!response.ok) {
+        throw new Error('Error en la respuesta del servidor')
+      }
+
+      const newPlane = await response.json()
+      setId('')
+      setNumeroVuelo('')
+      setAerolinea('')
+      setFechaSalida('')
+      setFechaLlegada('')
+      setHoraSalida('')
+      setHoraLlegada('')
+      setSalida('')
+      setDestino('')
+      setStatus('')
+      alert('Flight added successfully')
+      if (onFlightAdded) {
+        onFlightAdded(newPlane)
+      }
+    } catch (error) {
+      console.error('Error al añadir un vuelo:', error)
+    }
   }
 
   return (
@@ -255,6 +314,169 @@ const flightManagement = () => {
           </CCard>
         </CCol>
       </CRow>
+
+      <CContainer fluid className="p-0">
+        <div className="position-relative py-4">
+          <div className="position-absolute top-50 start-0 end-0 border-top border-2 border-primary"></div>
+          <div className="position-relative d-inline-block bg- px-4 mx-auto"></div>
+        </div>
+      </CContainer>
+
+      <CCard className="mx-auto" style={{ maxWidth: '500px', marginBottom: 20 }}>
+        <CCardHeader>
+          <h4 className="mb-0">ADD NEW FLIGHT</h4>
+        </CCardHeader>
+        <CCardBody>
+          <CForm onSubmit={handleSubmit}>
+            <div style={{ display: 'flex' }}>
+              <CRow className="mb-3">
+                <CCol style={{ margin: 10 }}>
+                  <CFormLabel htmlFor="Name Plane">Id Plane</CFormLabel>
+                  <CFormInput
+                    id="id"
+                    placeholder="Ingrese El id del vuelo"
+                    type="id"
+                    value={id}
+                    onChange={(e) => setId(e.target.value)}
+                    required
+                  />
+                </CCol>
+              </CRow>
+
+              <CRow className="mb-3">
+                <CCol style={{ margin: 10 }}>
+                  <CFormLabel htmlFor="Flight Number">Flight Number</CFormLabel>
+                  <CFormInput
+                    id="flightNumber"
+                    placeholder="Ingrese el numero de vuelo del vuelo"
+                    type="flightNumber"
+                    value={numeroVuelo}
+                    onChange={(e) => setNumeroVuelo(e.target.value)}
+                    required
+                  />
+                </CCol>
+              </CRow>
+            </div>
+            <CRow className="mb-3">
+              <CCol style={{ margin: 10 }}>
+                <CFormLabel htmlFor="Name Plane">Airline</CFormLabel>
+                <CFormInput
+                  id="id"
+                  placeholder="Ingrese la Aerolinea"
+                  type="text"
+                  value={aerolinea}
+                  onChange={(e) => setAerolinea(e.target.value)}
+                  required
+                />
+              </CCol>
+            </CRow>
+            <div style={{ display: 'flex' }}>
+              <CRow className="mb-3">
+                <CCol style={{ margin: 10 }}>
+                  <CFormLabel htmlFor="fecha Salida">departure date</CFormLabel>
+                  <CFormInput
+                    id="fechaSalida"
+                    placeholder="Ingrese la fecha del vuelo"
+                    type="date"
+                    value={fechaSalida}
+                    onChange={(e) => setFechaSalida(e.target.value)}
+                    required
+                  />
+                </CCol>
+              </CRow>
+              <CRow className="mb-3">
+                <CCol style={{ margin: 10 }}>
+                  <CFormLabel htmlFor="fecha llegada">Date arrived</CFormLabel>
+                  <CFormInput
+                    id="fechaSalida"
+                    placeholder="Ingrese la fecha del vuelo"
+                    type="date"
+                    value={fechaLlegada}
+                    onChange={(e) => setFechaLlegada(e.target.value)}
+                    required
+                  />
+                </CCol>
+              </CRow>
+            </div>
+            <div style={{ display: 'flex' }}>
+              <CRow className="mb-3">
+                <CCol style={{ margin: 10 }}>
+                  <CFormLabel htmlFor="Hora salida">departure time</CFormLabel>
+                  <CFormInput
+                    id="horaSalida"
+                    placeholder="Ingrese la hora del vuelo"
+                    type="time"
+                    value={horaSalida}
+                    onChange={(e) => setHoraSalida(e.target.value)}
+                    required
+                  />
+                </CCol>
+              </CRow>
+              <CRow className="mb-3">
+                <CCol style={{ margin: 10 }}>
+                  <CFormLabel htmlFor="hora Llegada">Arrival Time</CFormLabel>
+                  <CFormInput
+                    id="horaLlegada"
+                    placeholder="Ingrese la hora de llegada del vuelo"
+                    type="time"
+                    value={horaLlegada}
+                    onChange={(e) => setHoraLlegada(e.target.value)}
+                    required
+                  />
+                </CCol>
+              </CRow>
+            </div>
+            <div style={{ display: 'flex' }}>
+              <CRow className="mb-3">
+                <CCol style={{ margin: 10 }}>
+                  <CFormLabel htmlFor="Salida">Place of departure</CFormLabel>
+                  <CFormInput
+                    id="salida"
+                    placeholder="Ingrese de donde saldra el vuelo"
+                    type="text"
+                    value={Salida}
+                    onChange={(e) => setSalida(e.target.value)}
+                    required
+                  />
+                </CCol>
+              </CRow>
+              <CRow className="mb-3">
+                <CCol style={{ margin: 10 }}>
+                  <CFormLabel htmlFor="destino">Place of arrival</CFormLabel>
+                  <CFormInput
+                    id="horaLlegada"
+                    placeholder="Ingrese el destino del vuelo"
+                    type="text"
+                    value={destino}
+                    onChange={(e) => setDestino(e.target.value)}
+                    required
+                  />
+                </CCol>
+              </CRow>
+            </div>
+            <CRow className="mb-3">
+              <CCol style={{ margin: 10 }}>
+                <CFormLabel htmlFor="Status">Status</CFormLabel>
+                <CFormInput
+                  id="status"
+                  placeholder="Ingrese el status del vuelo"
+                  type="text"
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                  required
+                />
+              </CCol>
+            </CRow>
+            <CRow>
+              <CCol className="text-center">
+                <CButton type="submit" color="primary" className="px-4">
+                  Add flight
+                </CButton>
+              </CCol>
+            </CRow>
+          </CForm>
+        </CCardBody>
+      </CCard>
     </div>
   )
 }

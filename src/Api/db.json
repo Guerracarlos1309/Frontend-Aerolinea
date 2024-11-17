@@ -101,6 +101,14 @@
       "phoneNumber": "4247370080",
       "address": "crodero",
       "role": "Admin"
+    },
+    {
+      "id": "312132",
+      "name": "ads",
+      "email": "asd@dasadsasd",
+      "phoneNumber": "ads",
+      "address": "asd",
+      "role": "sad"
     }
   ],
   "plane": [
@@ -316,6 +324,43 @@
       "arrival": "Milan",
       "departure": "Barcelona",
       "flightTime": "20:00"
+    }
+  ],
+  "payments": [
+    {
+      "id": "1",
+      "date": "2023-05-01",
+      "amount": "100.00",
+      "status": "completed",
+      "customer": "daniel"
+    },
+    {
+      "id": "2",
+      "date": "2023-05-02",
+      "amount": "75.5",
+      "status": "pending",
+      "customer": "Ana"
+    },
+    {
+      "id": "3",
+      "date": "2023-05-03",
+      "amount": "200.00",
+      "status": "failed",
+      "customer": "Jhon"
+    },
+    {
+      "id": "4",
+      "date": "2023-05-04",
+      "amount": "50.00",
+      "status": "completed",
+      "customer": "Alicia"
+    },
+    {
+      "id": "5",
+      "date": "2023-05-05",
+      "amount": "150.00",
+      "status": "pending",
+      "customer": "Carlos"
     }
   ]
 }

@@ -31,7 +31,7 @@ const recruitment = ({ onPersonAdded }) => {
       setPhone('')
       setaddress('')
       setrole('')
-      alert('Persona añadida con éxito')
+      alert('User added successfully')
       if (onPersonAdded) {
         onPersonAdded(newPerson)
       }

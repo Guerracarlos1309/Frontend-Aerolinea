@@ -32,7 +32,7 @@ const Login = () => {
         <CRow className="justify-content-center">
           <CCol md={8}>
             <CCardGroup>
-              <CCard className="p-4" style={{ backgroundColor: 'rgba(255, 189, 115, 1)' }}>
+              <CCard className="p-4 ">
                 <CCardBody>
                   <CForm>
                     <h1 id="negro">Login</h1>
@@ -58,16 +58,16 @@ const Login = () => {
                     <CRow>
                       <CCol xs={6}>
                         <Link to="/home">
-                          <CButton id="buttomLogin" color="primary" className="px-4">
+                          <CButton id="buttomLogin" color="light" className="px-4">
                             Login
                           </CButton>
                         </Link>
                       </CCol>
                       <CCol xs={6} className="text-right">
                         <CButton
-                          color="black"
+                          color="info"
                           id="negro"
-                          className="px-0"
+                          className="px-3"
                           onClick={() => setVisiblePass(!visibleLg)}
                         >
                           Forgot password?
@@ -157,24 +157,18 @@ const Login = () => {
               </CCard>
               <CCard
                 id="loginDerecho"
-                className="text-white bg-primary py-5"
+                className="text-white bg-info py-5"
                 style={{ width: '44%', backgroundColor: 'red' }}
               >
                 <CCardBody className="text-center">
                   <div>
                     <h2 id="negro">Sign up</h2>
                     <p id="negro">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua.
+                      Register so you can check all the airline's modules, from checking, changing
+                      flights, to adding staff and new planes.
                     </p>
                     <Link to="/register">
-                      <CButton
-                        id="buttomLogin"
-                        color="primary"
-                        className="mt-3"
-                        active
-                        tabIndex={-1}
-                      >
+                      <CButton id="buttomLogin" color="light" className="mt-3" active tabIndex={-1}>
                         Register Now!
                       </CButton>
                     </Link>
