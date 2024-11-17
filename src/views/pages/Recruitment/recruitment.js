@@ -44,7 +44,6 @@ const recruitment = ({ onPersonAdded }) => {
   return (
     <div>
       <CForm onSubmit={handleSubmit} className="mb-3">
-        <h2 style={{ textAlign: 'center' }}>Añadir Nueva Persona</h2>
         <CFormInput
           type="id"
           id="id"
@@ -56,8 +55,8 @@ const recruitment = ({ onPersonAdded }) => {
         />
         <CFormInput
           type="text"
-          id="nombre"
-          label="Nombre"
+          id="Name"
+          label="Name"
           value={name}
           onChange={(e) => setNombre(e.target.value)}
           required
@@ -100,7 +99,7 @@ const recruitment = ({ onPersonAdded }) => {
           className="mb-3"
         />
         <CButton type="submit" color="primary">
-          Añadir Persona
+          Add User
         </CButton>
       </CForm>
     </div>

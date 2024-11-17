@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   CCard,
   CCardBody,
@@ -16,7 +16,7 @@ import {
 } from '@coreui/react'
 
 const listFlight = () => {
-  const flights = [
+  /*const flights = [
     {
       id: 1,
       departure: 'New York (JFK)',
@@ -62,7 +62,22 @@ const listFlight = () => {
       arrivalTime: '20:00',
       arrivalDeparture: '07:00',
     },
-  ]
+  ]*/
+  const [flight, setListFlights] = useState([])
+
+  useEffect(() => {
+    fetchListFlights()
+  }, [])
+
+  const fetchListFlights = async () => {
+    try {
+      const response = await fetch('http://localhost:3004/Flights')
+      const data = await response.json()
+      setListFlights(data)
+    } catch (error) {
+      console.error('Error al obtener los Vuelos', error)
+    }
+  }
 
   return (
     <div className="row">
@@ -90,23 +105,25 @@ const listFlight = () => {
               <CTable hover responsive>
                 <CTableHead>
                   <CTableRow>
-                    <CTableHeaderCell scope="col">Departure airport</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Arrival airport</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Flight number</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Flight Number</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Airline</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Flight Time</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Flight Date</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Departure time</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Arrival time</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Departure city</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Arrival city</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Status</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
                 <CTableBody>
-                  {flights.map((flight) => (
+                  {flight.map((flight) => (
                     <CTableRow key={flight.id}>
-                      <CTableDataCell>{flight.departure}</CTableDataCell>
-                      <CTableDataCell>{flight.arrival}</CTableDataCell>
-                      <CTableDataCell>{flight.flightNumber}</CTableDataCell>
-                      <CTableDataCell>{flight.date}</CTableDataCell>
-                      <CTableDataCell>{flight.arrivalTime}</CTableDataCell>
-                      <CTableDataCell>{flight.arrivalDeparture}</CTableDataCell>
+                      <CTableDataCell>{flight.numeroVuelo}</CTableDataCell>
+                      <CTableDataCell>{flight.aerolinea}</CTableDataCell>
+                      <CTableDataCell>{flight.horaSalida}</CTableDataCell>
+                      <CTableDataCell>{flight.fechaSalida}</CTableDataCell>
+                      <CTableDataCell>{flight.Salida}</CTableDataCell>
+                      <CTableDataCell>{flight.destino}</CTableDataCell>
+                      <CTableDataCell>{flight.status}</CTableDataCell>
                     </CTableRow>
                   ))}
                 </CTableBody>

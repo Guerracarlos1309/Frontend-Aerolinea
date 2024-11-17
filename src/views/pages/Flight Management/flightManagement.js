@@ -80,8 +80,8 @@ const flightManagement = () => {
                 <CTableHead>
                   <CTableRow>
                     <CTableHeaderCell scope="col">Flight number</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">From</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Toward</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Departure city</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Arrival city</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Flight status</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>

@@ -44,11 +44,10 @@ const recruitmentFlights = ({ onPlaneAdded }) => {
   return (
     <div>
       <CForm onSubmit={handleSubmit} className="mb-3">
-        <h2 style={{ textAlign: 'center' }}>Añadir Nueva Persona</h2>
         <CFormInput
           type="id"
           id="id"
-          label="id"
+          label="Id"
           value={id}
           onChange={(e) => setId(e.target.value)}
           required
@@ -57,7 +56,7 @@ const recruitmentFlights = ({ onPlaneAdded }) => {
         <CFormInput
           type="text"
           id="nombre"
-          label="Nombre"
+          label="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -66,7 +65,7 @@ const recruitmentFlights = ({ onPlaneAdded }) => {
         <CFormInput
           type="text"
           id="tuition"
-          label="tuition"
+          label="Tuition"
           value={tuition}
           onChange={(e) => setTuition(e.target.value)}
           required
@@ -75,7 +74,7 @@ const recruitmentFlights = ({ onPlaneAdded }) => {
         <CFormInput
           type="text"
           id="passengerCapacity"
-          label="passengerCapacity"
+          label="PassengerCapacity"
           value={passengerCapacity}
           onChange={(e) => setPassengerCapacity(e.target.value)}
           required
@@ -84,7 +83,7 @@ const recruitmentFlights = ({ onPlaneAdded }) => {
         <CFormInput
           type="text"
           id="flightHours"
-          label="flightHours"
+          label="FlightHours"
           value={flightHours}
           onChange={(e) => setFlightHours(e.target.value)}
           required
@@ -93,14 +92,14 @@ const recruitmentFlights = ({ onPlaneAdded }) => {
         <CFormInput
           type="text"
           id="status"
-          label="status"
+          label="Status"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
           required
           className="mb-3"
         />
         <CButton type="submit" color="primary">
-          Añadir Persona
+          Add plane
         </CButton>
       </CForm>
     </div>

@@ -60,7 +60,6 @@ const recruitmentCrew = ({ onCrewAdded }) => {
   return (
     <div>
       <CForm onSubmit={handleSubmit} className="mb-3">
-        <h2 style={{ textAlign: 'center' }}>Añadir Nuevo Tripulante</h2>
         <CFormInput
           type="id"
           id="id"
@@ -73,7 +72,7 @@ const recruitmentCrew = ({ onCrewAdded }) => {
         <CFormInput
           type="text"
           id="nombre"
-          label="Nombre"
+          label="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -82,7 +81,7 @@ const recruitmentCrew = ({ onCrewAdded }) => {
         <CFormInput
           type="text"
           id="license"
-          label="license"
+          label="License"
           value={license}
           onChange={(e) => setLicense(e.target.value)}
           required
@@ -91,7 +90,7 @@ const recruitmentCrew = ({ onCrewAdded }) => {
         <CFormInput
           type="text"
           id="birthdate"
-          label="birthdate"
+          label="Birthdate"
           value={birthdate}
           onChange={(e) => setBirthdate(e.target.value)}
           required
@@ -100,7 +99,7 @@ const recruitmentCrew = ({ onCrewAdded }) => {
         <CFormInput
           type="text"
           id="speciality"
-          label="speciality"
+          label="Speciality"
           value={speciality}
           onChange={(e) => setSpeciality(e.target.value)}
           required
@@ -109,7 +108,7 @@ const recruitmentCrew = ({ onCrewAdded }) => {
         <CFormInput
           type="text"
           id="flightHours"
-          label="flightHours"
+          label="FlightHours"
           value={flightHours}
           onChange={(e) => setFlightHours(e.target.value)}
           required
@@ -118,7 +117,7 @@ const recruitmentCrew = ({ onCrewAdded }) => {
         <CFormInput
           type="email"
           id="email"
-          label="email"
+          label="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -127,7 +126,7 @@ const recruitmentCrew = ({ onCrewAdded }) => {
         <CFormInput
           type="tel"
           id="tel"
-          label="phoneNumber"
+          label="PhoneNumber"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
           required
@@ -136,7 +135,7 @@ const recruitmentCrew = ({ onCrewAdded }) => {
         <CFormInput
           type="text"
           id="address"
-          label="address"
+          label="Address"
           value={address}
           onChange={(e) => setaddress(e.target.value)}
           required
@@ -144,7 +143,7 @@ const recruitmentCrew = ({ onCrewAdded }) => {
         />
 
         <CButton type="submit" color="primary">
-          Añadir Persona
+          Add staff
         </CButton>
       </CForm>
     </div>

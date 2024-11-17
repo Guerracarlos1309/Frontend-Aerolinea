@@ -10,7 +10,7 @@
       "horaLlegada": "16:00",
       "Salida": "Nueva York (JFK)",
       "destino": "London (LHR)",
-      "status": "En espera"
+      "status": "on hold"
     },
     {
       "id": "2",
@@ -22,7 +22,7 @@
       "horaLlegada": "03:00",
       "Salida": "Los Angeles (LAX)",
       "destino": "Tokio (NRT)",
-      "status": "Retrasado"
+      "status": "delayed"
     },
     {
       "id": "3",
@@ -34,7 +34,7 @@
       "horaLlegada": "22:00",
       "Salida": "Paris (CDG)",
       "destino": "Dubai (DXB)",
-      "status": "cancelado"
+      "status": "canceled"
     },
     {
       "id": "4",
@@ -46,7 +46,7 @@
       "horaLlegada": "19:00",
       "Salida": "Sydney (SYD)",
       "destino": "Singapoure (SIN)",
-      "status": "En vuelo"
+      "status": "in flight"
     },
     {
       "id": "5",
@@ -58,7 +58,7 @@
       "horaLlegada": "70:00",
       "Salida": "Madrid (MAD)",
       "destino": "Sao Paulo (GRU)",
-      "status": "cancelado"
+      "status": "canceled"
     }
   ],
   "users": [
@@ -95,36 +95,12 @@
       "role": "Admin"
     },
     {
-      "id": "5",
-      "name": "Rossy Chacon",
-      "email": "rossychacon30@gmail.com",
-      "phoneNumber": "4247370080",
-      "address": "crodero",
-      "role": "Admin"
-    },
-    {
-      "id": "6",
-      "name": "Rossy Chacon",
-      "email": "rossychacon30@gmail.com",
-      "phoneNumber": "4247370080",
-      "address": "crodero",
-      "role": "Admin"
-    },
-    {
       "id": "7",
       "name": "Rossy Chacon",
       "email": "rossychacon30@gmail.com",
       "phoneNumber": "4247370080",
       "address": "crodero",
       "role": "Admin"
-    },
-    {
-      "id": "8",
-      "name": "daniel",
-      "email": "dani12@sad",
-      "phoneNumber": "4245412555",
-      "address": "tachira",
-      "role": "admin"
     }
   ],
   "plane": [
@@ -143,6 +119,14 @@
       "passengerCapacity": "sadasdsd",
       "flightHours": "adssdaasd",
       "status": "adsasdsda"
+    },
+    {
+      "id": "6",
+      "tuition": "2",
+      "name": "plane",
+      "passengerCapacity": "2",
+      "flightHours": "2500",
+      "status": "cancelados"
     }
   ],
   "crew": [
@@ -156,6 +140,182 @@
       "email": "guerracarlos1309@gmail.com",
       "phoneNumber": "4245412555",
       "address": "tachira"
+    },
+    {
+      "id": "1",
+      "license": "123456",
+      "name": "Juan",
+      "birthdate": "16/05/2004",
+      "speciality": "Copilot",
+      "flightHours": "1500",
+      "email": "guerracarlos1309@gmail.com",
+      "phoneNumber": "4245412555",
+      "address": "tachira"
+    },
+    {
+      "id": "1",
+      "license": "123456",
+      "name": "Andrea",
+      "birthdate": "16/05/2004",
+      "speciality": "azafata",
+      "flightHours": "1500",
+      "email": "guerracarlos1309@gmail.com",
+      "phoneNumber": "4245412555",
+      "address": "tachira"
+    },
+    {
+      "id": "4",
+      "license": "31419488",
+      "name": "arturo",
+      "birthdate": "16/05/2004",
+      "speciality": "piloto",
+      "flightHours": "15000",
+      "email": "arturito@gmail.com",
+      "phoneNumber": "4247845424",
+      "address": "venezuela"
+    }
+  ],
+  "reports": [
+    {
+      "id": "1",
+      "name": "Flight Report",
+      "date": "2023-01-27",
+      "status": "Generated"
+    },
+    {
+      "id": "2",
+      "name": "Aircraft Maintenance Report",
+      "date": "2023-01-01",
+      "status": "Generated"
+    },
+    {
+      "id": "3",
+      "name": "Safety Report",
+      "date": "2023-01-04",
+      "status": "Generated"
+    },
+    {
+      "id": "4",
+      "name": "Customer Service Report",
+      "date": "2023-01-09",
+      "status": "Generated"
+    },
+    {
+      "id": "5",
+      "name": "Cost Report",
+      "date": "2023-03-01",
+      "status": "Generated"
+    },
+    {
+      "id": "6",
+      "name": "Complaints and Claims Report",
+      "date": "2023-03-21",
+      "status": "Generated"
+    },
+    {
+      "id": "8",
+      "name": "Press Report",
+      "date": "2023-04-30",
+      "status": "Generated"
+    },
+    {
+      "id": "9",
+      "name": "Cost Report",
+      "date": "2023-06-25",
+      "status": "Generated"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "1",
+      "number": "159",
+      "clientName": "Juan Pérez",
+      "date": "2023-05-15",
+      "total": "150.0",
+      "numberBabagge": "1599",
+      "idFlight": "159",
+      "methodPay": "Card",
+      "arrival": "Madrid",
+      "departure": "Atenas",
+      "flightTime": "20:18"
+    },
+    {
+      "id": "2",
+      "number": "753",
+      "clientName": "Maria Garcia",
+      "date": "2023-05-16",
+      "total": "200.0",
+      "numberBabagge": "1220",
+      "idFlight": "1590",
+      "methodPay": "Card",
+      "arrival": "Barcelona",
+      "departure": "Munchen",
+      "flightTime": "14:58"
+    },
+    {
+      "id": "3",
+      "number": "852",
+      "clientName": "Carlos Rodriguez",
+      "date": "2023-05-17",
+      "total": "175.0",
+      "numberBabagge": "159952",
+      "idFlight": "159590",
+      "methodPay": "efectivo",
+      "arrival": "Milan",
+      "departure": "EEUU",
+      "flightTime": "20:00"
+    },
+    {
+      "id": "4",
+      "number": "425",
+      "clientName": "Carlos Lopez",
+      "date": "2023-05-18",
+      "total": "175.0",
+      "numberBabagge": "15",
+      "idFlight": "20",
+      "methodPay": "Card",
+      "arrival": "Milan",
+      "departure": "Narnia",
+      "flightTime": "20:00"
+    },
+    {
+      "id": "5",
+      "number": "426",
+      "clientName": "Niuska Lopez",
+      "date": "2023-05-19",
+      "total": "175.0",
+      "numberBabagge": "159",
+      "idFlight": "21",
+      "methodPay": "Efectivo",
+      "arrival": "Madrid",
+      "departure": "EEUU",
+      "flightTime": "20:00"
+    },
+    {
+      "id": "6",
+      "number": "754",
+      "clientName": "Mari Beltran",
+      "date": "2023-05-20",
+      "total": "175.0",
+      "numberBabagge": "15955",
+      "idFlight": "22",
+      "methodPay": "Card",
+      "arrival": "Milan",
+      "departure": "Atenas",
+      "flightTime": "20:00"
+    },
+    {
+      "id": "7",
+      "number": "0020",
+      "clientName": "Adriana Romero",
+      "date": "2023-05-25",
+      "total": "175.0",
+      "numberBabagge": "1599524333",
+      "idFlight": "159590333",
+      "methodPay": "efectivo",
+      "arrival": "Milan",
+      "departure": "Barcelona",
+      "flightTime": "20:00"
     }
   ]
 }

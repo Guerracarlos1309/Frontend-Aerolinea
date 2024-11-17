@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import {
   CTable,
@@ -26,26 +26,26 @@ import {
 const reserves = () => {
   const [visible, setVisible] = useState(false)
   const [selectedReservation, setSelectedReservation] = useState({})
+  const [reserves, setReserves] = useState([])
+  const [busqueda, setBusqueda] = useState('')
 
-  const reservations = [
-    {
-      id: 1,
-      number: '159',
-      clientName: 'Juan Pérez',
-      date: '2023-05-15',
-      total: 150.0,
-      numberBabagge: '1599',
-    },
-    {
-      id: 2,
-      number: '753',
-      clientName: 'María García',
-      date: '2023-05-16',
-      total: 200.0,
-      numberBabagge: '1220',
-    },
-    { id: 3, number: '852', clientName: 'Carlos Rodríguez', date: '2023-05-17', total: 175.0 },
-  ]
+  const nameFiltered = reserves.filter(
+    (reserve) => reserve.number && reserve.number.toLowerCase().includes(busqueda.toLowerCase()),
+  )
+
+  useEffect(() => {
+    fetchReserves()
+  }, [])
+
+  const fetchReserves = async () => {
+    try {
+      const response = await fetch('http://localhost:3004/reservations')
+      const data = await response.json()
+      setReserves(data)
+    } catch (error) {
+      console.error('Error fetching users:', error)
+    }
+  }
 
   const handleViewClick = (reservation) => {
     setSelectedReservation(reservation)
@@ -54,7 +54,13 @@ const reserves = () => {
 
   return (
     <div className="p-4" style={{ backgroundColor: 'none' }}>
-      <CFormInput type="text" placeholder="Search by booking number..." className="mb-3" />
+      <CFormInput
+        type="text"
+        placeholder="Search by booking number..."
+        className="mb-3"
+        value={busqueda}
+        onChange={(e) => setBusqueda(e.target.value)}
+      />
 
       <CTable>
         <CTableHead>
@@ -65,7 +71,7 @@ const reserves = () => {
           </CTableRow>
         </CTableHead>
         <CTableBody>
-          {reservations.map((reservation) => (
+          {nameFiltered.map((reservation) => (
             <CTableRow key={reservation.id}>
               <CTableHeaderCell scope="row">{reservation.id}</CTableHeaderCell>
               <CTableDataCell>{reservation.number}</CTableDataCell>
@@ -76,7 +82,7 @@ const reserves = () => {
                   className="me-2"
                   onClick={() => handleViewClick(reservation)}
                 >
-                  Ver
+                  View
                 </CButton>
               </CTableDataCell>
             </CTableRow>
@@ -101,8 +107,8 @@ const reserves = () => {
               <CListGroup flush>
                 <CListGroupItem>
                   <div className="d-flex justify-content-between">
-                    <span>Id flight</span>
-                    <span>159</span>
+                    <strong>Id flight:</strong>
+                    {selectedReservation.idFlight}
                   </div>
                 </CListGroupItem>
                 <CListGroupItem>
@@ -114,29 +120,29 @@ const reserves = () => {
 
                 <CListGroupItem>
                   <div className="d-flex justify-content-between">
-                    <span>Payment Method</span>
-                    <span>card</span>
+                    <strong>Payment Method: </strong>
+                    {selectedReservation.methodPay}
                   </div>
                 </CListGroupItem>
 
                 <CListGroupItem>
                   <div className="d-flex justify-content-between">
-                    <span>Arrival Point</span>
-                    <span>Madrid</span>
+                    <strong>Arrival Point: </strong>
+                    {selectedReservation.arrival}
                   </div>
                 </CListGroupItem>
 
                 <CListGroupItem>
                   <div className="d-flex justify-content-between">
-                    <span>Departure location</span>
-                    <span>Atenas</span>
+                    <strong>Departure location: </strong>
+                    {selectedReservation.departure}
                   </div>
                 </CListGroupItem>
 
                 <CListGroupItem>
                   <div className="d-flex justify-content-between">
-                    <span>Flight Time</span>
-                    <span>20:18</span>
+                    <strong>Flight Time: </strong>
+                    {selectedReservation.flightTime}
                   </div>
                 </CListGroupItem>
 

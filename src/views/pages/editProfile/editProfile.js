@@ -66,12 +66,6 @@ const editProfile = () => {
           </CContainer>
         </CTabPanel>
         <CTabPanel className="py-3" aria-labelledby="profile-tab-pane" itemKey={2}>
-          <CInputGroup>
-            <CInputGroupText>First and last name</CInputGroupText>
-            <CFormInput aria-label="First name" />
-            <CFormInput aria-label="Last name" />
-          </CInputGroup>
-
           <CInputGroup style={{ marginTop: 10 }} className="mb-3">
             <CInputGroupText id="basic-addon1">@</CInputGroupText>
             <CFormInput
@@ -97,21 +91,6 @@ const editProfile = () => {
                 placeholder="Repeat password"
                 type="password"
                 id="inputPassword"
-              />
-            </CCol>
-
-            <CCol sm={6}>
-              <CFormInput
-                style={{ marginTop: 10 }}
-                type="text"
-                placeholder="Address"
-                aria-label="default input example"
-              />
-              <CFormInput
-                style={{ marginTop: 10 }}
-                type="text"
-                placeholder="Phone Number"
-                aria-label="default input example"
               />
             </CCol>
           </CRow>
