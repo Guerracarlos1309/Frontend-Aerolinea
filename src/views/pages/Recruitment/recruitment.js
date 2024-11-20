@@ -14,9 +14,7 @@ const recruitment = ({ onPersonAdded }) => {
     try {
       const response = await fetch('http://localhost:3004/users', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+
         body: JSON.stringify({ name, email, id, phoneNumber, address, role }),
       })
 

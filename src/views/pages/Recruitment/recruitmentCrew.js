@@ -17,9 +17,7 @@ const recruitmentCrew = ({ onCrewAdded }) => {
     try {
       const response = await fetch('http://localhost:3004/crew', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+
         body: JSON.stringify({
           license,
           name,

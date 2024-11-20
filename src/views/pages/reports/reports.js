@@ -67,9 +67,6 @@ const reports = () => {
     try {
       const response = await fetch(`http://localhost:3004/reports/${editingReport.id}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify(editingReport),
       })
       const updatedReport = await response.json()

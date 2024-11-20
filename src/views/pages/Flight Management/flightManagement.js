@@ -86,9 +86,7 @@ const flightManagement = (onFlightAdded) => {
     try {
       const response = await fetch('http://localhost:3004/Flights', {
         method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
+
         body: JSON.stringify({
           id,
           numeroVuelo,

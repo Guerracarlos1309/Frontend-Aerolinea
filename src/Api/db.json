@@ -95,20 +95,12 @@
       "role": "Admin"
     },
     {
-      "id": "7",
-      "name": "Rossy Chacon",
-      "email": "rossychacon30@gmail.com",
-      "phoneNumber": "4247370080",
-      "address": "crodero",
-      "role": "Admin"
-    },
-    {
-      "id": "312132",
-      "name": "ads",
+      "id": "2000",
+      "name": "Luis Landkoer",
       "email": "asd@dasadsasd",
-      "phoneNumber": "ads",
-      "address": "asd",
-      "role": "sad"
+      "phoneNumber": "424854254",
+      "address": "sc",
+      "role": "admin"
     }
   ],
   "plane": [
@@ -188,7 +180,7 @@
       "id": "1",
       "name": "Flight Report",
       "date": "2023-01-27",
-      "status": "Generated"
+      "status": "Generated "
     },
     {
       "id": "2",
@@ -218,12 +210,6 @@
       "id": "6",
       "name": "Complaints and Claims Report",
       "date": "2023-03-21",
-      "status": "Generated"
-    },
-    {
-      "id": "8",
-      "name": "Press Report",
-      "date": "2023-04-30",
       "status": "Generated"
     },
     {
