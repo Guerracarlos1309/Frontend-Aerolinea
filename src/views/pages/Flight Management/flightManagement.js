@@ -73,6 +73,21 @@ const flightManagement = (onFlightAdded) => {
     }
   }
 
+  const handleSaves = async () => {
+    try {
+      const response = await fetch(`http://localhost:3004/Flights/${flightToEdit.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(flightToEdit),
+      })
+      const updatedFlight = await response.json()
+      setFlights(flights.map((Flight) => (Flight.id === updatedFlight.id ? updatedFlight : Flight)))
+      setVisible(false)
+      setFlightToEdit(null)
+    } catch (error) {
+      console.error('Error al actualizar el reporte:', error)
+    }
+  }
+
   const editFlight = (e) => {
     e.preventDefault()
     setFlights(flights.map((flight) => (flight.id === flightToEdit.id ? flightToEdit : flight)))
@@ -261,8 +276,8 @@ const flightManagement = (onFlightAdded) => {
                               />
                             </div>
                             <CModalFooter style={{ marginTop: 20 }}>
-                              <CButton color="primary" type="submit">
-                                Save changes
+                              <CButton color="primary" onClick={handleSaves} onClose={editVisible}>
+                                Save Changes
                               </CButton>
                             </CModalFooter>
                           </CForm>

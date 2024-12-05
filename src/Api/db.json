@@ -10,7 +10,7 @@
       "horaLlegada": "16:00",
       "Salida": "Nueva York (JFK)",
       "destino": "London (LHR)",
-      "status": "on hold"
+      "status": "En espera"
     },
     {
       "id": "2",
@@ -46,7 +46,7 @@
       "horaLlegada": "19:00",
       "Salida": "Sydney (SYD)",
       "destino": "Singapoure (SIN)",
-      "status": "in flight"
+      "status": "in flights"
     },
     {
       "id": "5",
@@ -58,18 +58,10 @@
       "horaLlegada": "70:00",
       "Salida": "Madrid (MAD)",
       "destino": "Sao Paulo (GRU)",
-      "status": "canceled"
+      "status": "En vuelo"
     }
   ],
   "users": [
-    {
-      "id": "1",
-      "name": "Carlos Guerra",
-      "email": "geurracarlos1309@gmail.com",
-      "phoneNumber": "4247842726",
-      "address": "crodero",
-      "role": "Admin"
-    },
     {
       "id": "2",
       "name": "Rossy Chacon",
@@ -178,7 +170,7 @@
   "reports": [
     {
       "id": "1",
-      "name": "Flight Report",
+      "name": "Flight Report today",
       "date": "2023-01-27",
       "status": "Generated "
     },
@@ -202,7 +194,7 @@
     },
     {
       "id": "5",
-      "name": "Cost Report",
+      "name": "Cost Reportsss",
       "date": "2023-03-01",
       "status": "Generated"
     },

@@ -22,6 +22,7 @@ import {
   CListGroup,
   CListGroupItem,
 } from '@coreui/react'
+import { helpHttp } from '../../../helper/helpHttp'
 
 const reserves = () => {
   const [visible, setVisible] = useState(false)
@@ -33,11 +34,20 @@ const reserves = () => {
     (reserve) => reserve.number && reserve.number.toLowerCase().includes(busqueda.toLowerCase()),
   )
 
+  let api = helpHttp()
+  let url = 'http://localhost:3004/reservations'
   useEffect(() => {
-    fetchReserves()
+    api.get(url).then((res) => {
+      console.log(res)
+      if (!res.err) {
+        setReserves(res)
+      } else {
+        setReserves(null)
+      }
+    })
   }, [])
 
-  const fetchReserves = async () => {
+  /*const fetchReserves = async () => {
     try {
       const response = await fetch('http://localhost:3004/reservations')
       const data = await response.json()
@@ -45,7 +55,7 @@ const reserves = () => {
     } catch (error) {
       console.error('Error fetching users:', error)
     }
-  }
+  }*/
 
   const handleViewClick = (reservation) => {
     setSelectedReservation(reservation)

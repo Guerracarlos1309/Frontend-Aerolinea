@@ -14,9 +14,15 @@ import {
   CButton,
   CButtonGroup,
 } from '@coreui/react'
+import { helpHttp } from '../../../helper/helpHttp'
 
 const listFlight = () => {
   const [flight, setListFlights] = useState([])
+
+  let api = helpHttp()
+
+  console.log(api)
+  let url = 'http://localhost:3004/Flights'
 
   useEffect(() => {
     fetchListFlights()

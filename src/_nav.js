@@ -121,11 +121,6 @@ const _nav = [
         name: 'Register',
         to: '/register',
       },
-      {
-        component: CNavItem,
-        name: 'Edit profile',
-        to: 'editProfile',
-      },
     ],
   },
 ]
