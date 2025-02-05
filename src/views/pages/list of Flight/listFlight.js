@@ -14,43 +14,65 @@ import {
   CButton,
   CButtonGroup,
 } from '@coreui/react'
-import { helpHttp } from '../../../helper/helpHttp'
+import { helpFetch } from '../../../Api/helpFetch.js'
 
-const listFlight = () => {
-  const [flight, setListFlights] = useState([])
+const api = helpFetch()
 
-  let api = helpHttp()
-
-  console.log(api)
-  let url = 'http://localhost:3004/Flights'
+const ListFlight = () => {
+  const [flights, setFlights] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [flightsPerPage] = useState(5)
 
   useEffect(() => {
     fetchListFlights()
   }, [])
 
+  useEffect(() => {}, [flights])
+
   const fetchListFlights = async () => {
-    try {
-      const response = await fetch('http://localhost:3004/Flights')
-      const data = await response.json()
-      setListFlights(data)
-    } catch (error) {
-      console.error('Error al obtener los Vuelos', error)
-    }
+    await api.get('/flights').then((data) => {
+      if (!data.error) {
+        console.log(data)
+        setFlights(data.data)
+      }
+    })
   }
+
+  const totalPages = Math.ceil(flights.length / flightsPerPage)
+
+  const indexOfLastFlight = currentPage * flightsPerPage
+  const indexOfFirstFlight = indexOfLastFlight - flightsPerPage
+  const currentFlights = flights.slice(indexOfFirstFlight, indexOfLastFlight)
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
     <div className="row">
+      <div className="mb-4 position-relative">
+        <h2
+          className="text-center position-relative pb-3"
+          style={{
+            fontFamily: 'Arial, sans-serif',
+            color: '#4a4a4a',
+            borderBottom: '3px solid',
+            borderImage: 'linear-gradient(to right, transparent, #4a4a4a, transparent) 1',
+          }}
+        >
+          List Of Flights
+        </h2>
+      </div>
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 20 }}>
-        <CButtonGroup role="group" aria-label="Basic example">
-          <CButton color="primary" style={{ margin: 1 }}>
-            Left
-          </CButton>
-          <CButton color="primary" style={{ margin: 1 }}>
-            Middle
-          </CButton>
-          <CButton color="primary" style={{ margin: 1 }}>
-            Right
-          </CButton>
+        <CButtonGroup role="group" aria-label="Pagination">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <CButton
+              key={index + 1}
+              color="warning"
+              style={{ margin: 1 }}
+              onClick={() => paginate(index + 1)}
+            >
+              {index + 1}
+            </CButton>
+          ))}
         </CButtonGroup>
       </div>
 
@@ -65,24 +87,22 @@ const listFlight = () => {
                 <CTableHead>
                   <CTableRow>
                     <CTableHeaderCell scope="col">Flight Number</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Airline</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Flight Time</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Flight Date</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Departure city</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Arrival city</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Status</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Services</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Tuition</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Name</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Airport Departure</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Airport Arrival</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
                 <CTableBody>
-                  {flight.map((flight) => (
-                    <CTableRow key={flight.id}>
-                      <CTableDataCell>{flight.numeroVuelo}</CTableDataCell>
-                      <CTableDataCell>{flight.aerolinea}</CTableDataCell>
-                      <CTableDataCell>{flight.horaSalida}</CTableDataCell>
-                      <CTableDataCell>{flight.fechaSalida}</CTableDataCell>
-                      <CTableDataCell>{flight.Salida}</CTableDataCell>
-                      <CTableDataCell>{flight.destino}</CTableDataCell>
-                      <CTableDataCell>{flight.status}</CTableDataCell>
+                  {currentFlights.map((flight) => (
+                    <CTableRow key={flight.id_flight}>
+                      <CTableDataCell>{flight.flight_number}</CTableDataCell>
+                      <CTableDataCell>{flight.service}</CTableDataCell>
+                      <CTableDataCell>{flight.tuition}</CTableDataCell>
+                      <CTableDataCell>{flight.name}</CTableDataCell>
+                      <CTableDataCell>{flight.a_departure}</CTableDataCell>
+                      <CTableDataCell>{flight.a_arrival}</CTableDataCell>
                     </CTableRow>
                   ))}
                 </CTableBody>
@@ -95,4 +115,4 @@ const listFlight = () => {
   )
 }
 
-export default listFlight
+export default ListFlight

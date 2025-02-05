@@ -14,63 +14,64 @@ import {
   CModalFooter,
   CFormInput,
 } from '@coreui/react'
+import { helpFetch } from '../../../Api/helpFetch.js'
 
-const reports = () => {
+const api = helpFetch()
+
+const Reports = () => {
   const [visible, setVisible] = useState(false)
   const [reports, setReports] = useState([])
   const [editingReport, setEditingReport] = useState(null)
   const [deletingReportId, setDeletingReportId] = useState(null)
   const [busqueda, setBusqueda] = useState('')
-
-  const nameFiltered = reports.filter(
-    (report) => report.name && report.name.toLowerCase().includes(busqueda.toLowerCase()),
-  )
+  const [modalType, setModalType] = useState(null)
+  const [selectedReport, setSelectedReport] = useState(null)
 
   useEffect(() => {
     fetchReports()
   }, [])
 
-  const fetchReports = async () => {
-    try {
-      const response = await fetch('http://localhost:3004/reports')
-      const data = await response.json()
-      setReports(data)
-    } catch (error) {
-      console.error('Error al obtener los reportes:', error)
-    }
+  const fetchReports = () => {
+    api.get('/reports').then((data) => {
+      if (!data.error && Array.isArray(data.msg)) {
+        setReports(data)
+      }
+    })
   }
 
   const handleEdit = (report) => {
     setEditingReport(report)
+    setModalType('edit')
     setVisible(true)
   }
 
   const handleDelete = (id) => {
-    setDeletingReportId(id)
+    setSelectedReport(id)
     setVisible(true)
   }
 
-  const confirmDelete = async () => {
-    try {
-      await fetch(`http://localhost:3004/reports/${deletingReportId}`, {
-        method: 'DELETE',
-      })
-      setReports(reports.filter((report) => report.id !== deletingReportId))
-      setVisible(false)
-      setDeletingReportId(null)
-    } catch (error) {
-      console.error('Error al eliminar el reporte:', error)
-    }
+  const confirmDelete = () => {
+    api.delet('/reports', selectedReport).then((response) => {
+      if (!response.error) {
+        fetchReports()
+        setReports((prevReports) => prevReports.filter((report) => report.id !== deletingReportId))
+        setVisible(false)
+        setDeletingReportId(null)
+        setSelectedReport(null)
+      }
+    })
   }
 
   const handleSave = async () => {
     try {
-      const response = await fetch(`http://localhost:3004/reports/${editingReport.id}`, {
+      const response = await fetch(`http://localhost:7500/reports/${editingReport.id}`, {
         method: 'PUT',
         body: JSON.stringify(editingReport),
       })
       const updatedReport = await response.json()
-      setReports(reports.map((report) => (report.id === updatedReport.id ? updatedReport : report)))
+      setReports((prevReports) =>
+        prevReports.map((report) => (report.id === updatedReport.id ? updatedReport : report)),
+      )
       setVisible(false)
       setEditingReport(null)
     } catch (error) {
@@ -85,7 +86,6 @@ const reports = () => {
           style={{ marginRight: 20, width: 350 }}
           type="text"
           placeholder="Search for report..."
-          className="w-full p-2 mb-3"
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
         />
@@ -93,107 +93,84 @@ const reports = () => {
       <CTable>
         <CTableHead>
           <CTableRow>
-            <CTableHeaderCell scope="col">#</CTableHeaderCell>
-            <CTableHeaderCell scope="col">Name</CTableHeaderCell>
-            <CTableHeaderCell scope="col">Date</CTableHeaderCell>
-            <CTableHeaderCell scope="col">Status</CTableHeaderCell>
-            <CTableHeaderCell scope="col">Actions</CTableHeaderCell>
+            <CTableHeaderCell>#</CTableHeaderCell>
+            <CTableHeaderCell>Name</CTableHeaderCell>
+            <CTableHeaderCell>Date</CTableHeaderCell>
+            <CTableHeaderCell>Status</CTableHeaderCell>
+            <CTableHeaderCell>Actions</CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
-          {nameFiltered.map((report) => (
-            <CTableRow key={report.id}>
-              <CTableHeaderCell scope="row">{report.id}</CTableHeaderCell>
-              <CTableDataCell>{report.name}</CTableDataCell>
-              <CTableDataCell>{report.date}</CTableDataCell>
-              <CTableDataCell>{report.status}</CTableDataCell>
-              <CTableDataCell>
-                <CButton
-                  color="primary"
-                  size="sm"
-                  className="me-2"
-                  onClick={() => handleEdit(report)}
-                >
-                  edit
-                </CButton>
-
-                <CModal visible={visible} onClose={() => setVisible(false)}>
-                  <CModalHeader>
-                    <CModalTitle>{editingReport ? 'EDIT REPORT' : 'DELETE REPORT'}</CModalTitle>
-                  </CModalHeader>
-                  <CModalBody>
-                    {editingReport ? (
-                      <>
-                        <CFormInput
-                          type="text"
-                          value={editingReport.name}
-                          onChange={(e) =>
-                            setEditingReport({ ...editingReport, name: e.target.value })
-                          }
-                          label="NAME"
-                          className="mb-3"
-                        />
-                        <CFormInput
-                          type="date"
-                          value={editingReport.date}
-                          onChange={(e) =>
-                            setEditingReport({ ...editingReport, date: e.target.value })
-                          }
-                          label="DATE"
-                          className="mb-3"
-                        />
-                        <CFormInput
-                          type="text"
-                          value={editingReport.status}
-                          onChange={(e) =>
-                            setEditingReport({ ...editingReport, status: e.target.value })
-                          }
-                          label="STATUS"
-                          className="mb-3"
-                        />
-                      </>
-                    ) : (
-                      'Are you sure you want to delete this report?'
-                    )}
-                  </CModalBody>
-                  <CModalFooter>
-                    <CButton color="secondary" onClick={() => setVisible(false)}>
-                      Cancel
-                    </CButton>
-                    <CButton color="primary" onClick={editingReport ? handleSave : confirmDelete}>
-                      {editingReport ? 'Save' : 'Delete'}
-                    </CButton>
-                  </CModalFooter>
-                </CModal>
-                <CButton color="success" size="sm" className="me-2">
-                  Download
-                </CButton>
-                <CButton color="danger" size="sm" onClick={() => handleDelete(report.id)}>
-                  Delete
-                </CButton>
-                {visible && (
-                  <CModal visible={visible} onClose={() => setVisible(false)}>
-                    <CModalHeader>
-                      <CModalTitle>Delete report</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>Are you sure you want to delete this report?</CModalBody>
-                    <CModalFooter>
-                      <CButton color="secondary" onClick={() => setVisible(false)}>
-                        Cancel
-                      </CButton>
-                      <CButton color="primary" onClick={() => handleDelete(report.id)}>
-                        Delete
-                      </CButton>
-                    </CModalFooter>
-                  </CModal>
-                )}
-              </CTableDataCell>
-            </CTableRow>
-          ))}
+          {reports
+            .filter((report) => report.name?.toLowerCase().includes(busqueda.toLowerCase()))
+            .map((report) => (
+              <CTableRow key={report.id}>
+                <CTableHeaderCell>{report.id}</CTableHeaderCell>
+                <CTableDataCell>{report.name}</CTableDataCell>
+                <CTableDataCell>{report.date}</CTableDataCell>
+                <CTableDataCell>{report.status}</CTableDataCell>
+                <CTableDataCell>
+                  <CButton
+                    color="primary"
+                    size="sm"
+                    className="me-2"
+                    onClick={() => handleEdit(report)}
+                  >
+                    Edit
+                  </CButton>
+                  <CButton color="danger" size="sm" onClick={() => handleDelete(report.id)}>
+                    Delete
+                  </CButton>
+                </CTableDataCell>
+              </CTableRow>
+            ))}
         </CTableBody>
       </CTable>
+
+      <CModal visible={visible} onClose={() => setVisible(false)}>
+        <CModalHeader>
+          <CModalTitle>{modalType === 'edit' ? 'Edit Report' : 'Delete Report'}</CModalTitle>
+        </CModalHeader>
+        <CModalBody>
+          {modalType === 'edit' && editingReport ? (
+            <>
+              <CFormInput
+                type="text"
+                value={editingReport.name}
+                onChange={(e) => setEditingReport({ ...editingReport, name: e.target.value })}
+                label="Name"
+                className="mb-3"
+              />
+              <CFormInput
+                type="date"
+                value={editingReport.date}
+                onChange={(e) => setEditingReport({ ...editingReport, date: e.target.value })}
+                label="Date"
+                className="mb-3"
+              />
+              <CFormInput
+                type="text"
+                value={editingReport.status}
+                onChange={(e) => setEditingReport({ ...editingReport, status: e.target.value })}
+                label="Status"
+                className="mb-3"
+              />
+            </>
+          ) : (
+            'Are you sure you want to delete this report?'
+          )}
+        </CModalBody>
+        <CModalFooter>
+          <CButton color="secondary" onClick={() => setVisible(false)}>
+            Cancel
+          </CButton>
+          <CButton color="primary" onClick={modalType === 'edit' ? handleSave : confirmDelete}>
+            {modalType === 'edit' ? 'Save' : 'Delete'}
+          </CButton>
+        </CModalFooter>
+      </CModal>
     </div>
   )
 }
 
-export default reports
+export default Reports

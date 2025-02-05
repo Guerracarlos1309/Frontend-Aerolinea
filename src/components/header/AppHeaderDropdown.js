@@ -28,6 +28,16 @@ import { useNavigate } from 'react-router-dom'
 
 const AppHeaderDropdown = () => {
   const navigate = useNavigate()
+  //const history = useHistory()
+
+  // const handleLogout = () => {
+  //   // Aquí puedes limpiar el almacenamiento local o realizar la llamada para cerrar sesión
+  //   localStorage.removeItem('authToken') // ejemplo para eliminar un token del localStorage
+  //   sessionStorage.removeItem('authToken') // si usas sessionStorage
+
+  //   // Redirigir a la página de login o home después de logout
+  //   history.push('/login') // asumiendo que tienes una ruta para login
+  // }
   return (
     <CDropdown variant="nav-item">
       <CDropdownToggle placement="bottom-end" className="py-0 pe-0" caret={false}>
@@ -35,11 +45,6 @@ const AppHeaderDropdown = () => {
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
         <CDropdownHeader className="bg-body-secondary fw-semibold mb-2">Account</CDropdownHeader>
-        <CDropdownItem href="#">
-          <CIcon icon={cilUser} className="me-2" />
-          Profile
-        </CDropdownItem>
-        <CDropdownDivider />
 
         <CDropdownItem href="#" onClick={() => navigate('editProfile')}>
           <CIcon icon={cilUser} className="me-2" />

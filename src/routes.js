@@ -2,10 +2,7 @@ import { element } from 'prop-types'
 import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
-const recruitment = React.lazy(() => import('./views/pages/Recruitment/recruitment'))
-const performanceEvaluation = React.lazy(
-  () => import('./views/pages/Performance Evaluation/performanceEvaluation'),
-)
+
 const listFlight = React.lazy(() => import('./views/pages/list of Flight/listFlight'))
 const flightManagement = React.lazy(
   () => import('./views/pages/Flight Management/flightManagement'),
@@ -21,8 +18,7 @@ const recruitmentCrew = React.lazy(() => import('./views/pages/Recruitment/recru
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
-  { path: '/recruitment', name: 'Recruitment', element: recruitment },
-  { path: '/performanceEvaluation', name: 'RerformanceEvaluation', element: performanceEvaluation },
+
   { path: '/listFlight', name: 'ListFlight', element: listFlight },
   { path: '/flightManagement', name: 'FlightManagement', element: flightManagement },
   { path: '/reserves', name: 'Reserves', element: reserves },

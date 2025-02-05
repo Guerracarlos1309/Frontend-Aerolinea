@@ -37,7 +37,6 @@ const _nav = [
     to: 'recruitment',
     icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
     items: [
-      { component: CNavItem, name: 'Recruitment Users', to: 'recruitment' },
       {
         component: CNavItem,
         name: 'recruitment Flight',
@@ -50,12 +49,7 @@ const _nav = [
       },
     ],
   },
-  {
-    component: CNavItem,
-    name: 'Performance Evaluation',
-    to: 'performanceEvaluation',
-    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
-  },
+
   {
     component: CNavTitle,
     name: 'Flight Management',
@@ -84,7 +78,7 @@ const _nav = [
 
   {
     component: CNavItem,
-    name: 'Payments',
+    name: 'Planes',
     to: 'payments',
     icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
   },

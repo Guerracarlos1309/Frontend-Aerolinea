@@ -4,6 +4,19 @@
       "id": "1",
       "numeroVuelo": "BA178",
       "aerolinea": "American Airlines",
+      "fechaSalida": "2023-06-30",
+      "fechaLlegada": "2023-06-30",
+      "horaSalida": "00:02",
+      "horaLlegada": "21:00",
+      "Salida": "Nueva York (JFK)",
+      "destino": "London (LHR)",
+      "status": "En esperaas",
+      "horallegada": "20:00"
+    },
+    {
+      "id": "2",
+      "numeroVuelo": "BA178",
+      "aerolinea": "American Airlines",
       "fechaSalida": "2023-06-15",
       "fechaLlegada": "2023-06-15",
       "horaSalida": "08:00",
@@ -13,86 +26,130 @@
       "status": "En espera"
     },
     {
-      "id": "2",
-      "numeroVuelo": "JL015",
+      "id": "3",
+      "numeroVuelo": "BA178",
       "aerolinea": "American Airlines",
       "fechaSalida": "2023-06-15",
       "fechaLlegada": "2023-06-15",
-      "horaSalida": "10:00",
-      "horaLlegada": "03:00",
-      "Salida": "Los Angeles (LAX)",
-      "destino": "Tokio (NRT)",
-      "status": "delayed"
-    },
-    {
-      "id": "3",
-      "numeroVuelo": "EK032",
-      "aerolinea": "American Airlines",
-      "fechaSalida": "2023-06-16",
-      "fechaLlegada": "2023-06-16",
-      "horaSalida": "10:00",
-      "horaLlegada": "22:00",
-      "Salida": "Paris (CDG)",
-      "destino": "Dubai (DXB)",
-      "status": "canceled"
+      "horaSalida": "08:00",
+      "horaLlegada": "16:00",
+      "Salida": "Nueva York (JFK)",
+      "destino": "London (LHR)",
+      "status": "En esperass"
     },
     {
       "id": "4",
-      "numeroVuelo": "SQ232",
-      "aerolinea": "American Airlines",
-      "fechaSalida": "2023-06-15",
-      "fechaLlegada": "2023-06-15",
-      "horaSalida": "14:00",
-      "horaLlegada": "19:00",
-      "Salida": "Sydney (SYD)",
-      "destino": "Singapoure (SIN)",
-      "status": "in flights"
+      "numeroVuelo": "AF123",
+      "aerolinea": "Air France",
+      "fechaSalida": "2025-02-10",
+      "fechaLlegada": "2025-02-10",
+      "horaSalida": "14:30",
+      "horaLlegada": "17:45",
+      "Salida": "Paris",
+      "destino": "New York",
+      "status": "Scheduled"
     },
     {
       "id": "5",
-      "numeroVuelo": "IB6824",
-      "aerolinea": "American Airlines",
-      "fechaSalida": "2023-06-17",
-      "fechaLlegada": "2023-06-18",
-      "horaSalida": "20:00",
-      "horaLlegada": "70:00",
-      "Salida": "Madrid (MAD)",
-      "destino": "Sao Paulo (GRU)",
-      "status": "En vuelo"
+      "numeroVuelo": "DL456",
+      "aerolinea": "Delta Airlines",
+      "fechaSalida": "2025-02-15",
+      "fechaLlegada": "2025-02-15",
+      "horaSalida": "09:00",
+      "horaLlegada": "11:30",
+      "Salida": "Atlanta",
+      "destino": "Los Angeles",
+      "status": "Scheduled"
+    },
+    {
+      "id": "7",
+      "numeroVuelo": "UA101",
+      "aerolinea": "United Airlines",
+      "fechaSalida": "2025-03-01",
+      "fechaLlegada": "2025-03-01",
+      "horaSalida": "06:30",
+      "horaLlegada": "08:15",
+      "Salida": "Chicago",
+      "destino": "San Francisco",
+      "status": "On Time"
+    },
+    {
+      "id": "8",
+      "numeroVuelo": "LH202",
+      "aerolinea": "Lufthansa",
+      "fechaSalida": "2025-03-05",
+      "fechaLlegada": "2025-03-05",
+      "horaSalida": "16:00",
+      "horaLlegada": "18:00",
+      "Salida": "Frankfurt",
+      "destino": "Madrid",
+      "status": "Cancelled"
+    },
+    {
+      "id": "1212",
+      "numeroVuelo": "12",
+      "aerolinea": "coviasa",
+      "fechaSalida": "2025-03-03",
+      "fechaLlegada": "2025-03-04",
+      "horaSalida": "18:46",
+      "horaLlegada": "18:46",
+      "Salida": "colombia",
+      "destino": "venezuela",
+      "status": "en vuelo"
     }
   ],
   "users": [
     {
-      "id": "2",
-      "name": "Rossy Chacon",
-      "email": "rossychacon30@gmail.com",
-      "phoneNumber": "4247370080",
-      "address": "crodero",
-      "role": "Admin"
-    },
-    {
-      "id": "3",
-      "name": "Rossy Chacon",
-      "email": "rossychacon30@gmail.com",
-      "phoneNumber": "4247370080",
-      "address": "crodero",
-      "role": "Admin"
-    },
-    {
       "id": "4",
       "name": "Rossy Chacon",
-      "email": "rossychacon30@gmail.com",
-      "phoneNumber": "4247370080",
-      "address": "crodero",
-      "role": "Admin"
+      "email": "rossychacon3012@gmail.com",
+      "phoneNumber": "42473700800",
+      "address": "Cordero",
+      "role": "Admin",
+      "username": "admin",
+      "password": "123"
     },
     {
-      "id": "2000",
+      "id": "202100221",
       "name": "Luis Landkoer",
       "email": "asd@dasadsasd",
       "phoneNumber": "424854254",
       "address": "sc",
-      "role": "admin"
+      "role": "admin",
+      "username": "admin2",
+      "password": "123"
+    },
+    {
+      "id": "202100221",
+      "name": "Luis Landkoer",
+      "email": "asd@dasadsasd",
+      "phoneNumber": "424854254",
+      "address": "sc",
+      "role": "admin",
+      "username": "admin2",
+      "password": "123"
+    },
+    {
+      "id": "84ea",
+      "username": "carlos",
+      "email": "guerracarlos1309@gmail.com",
+      "password": "12",
+      "name": "Carlos",
+      "phoneNumber": "04247842726",
+      "address": "Cordero",
+      "role": "Guest"
+    },
+    {
+      "id": "d2eb",
+      "username": "carlos2",
+      "email": "adrian24vergel@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "443f",
+      "username": "admin3",
+      "email": "adrian24vergelq@gmail.com",
+      "password": "123"
     }
   ],
   "plane": [
@@ -119,18 +176,26 @@
       "passengerCapacity": "2",
       "flightHours": "2500",
       "status": "cancelados"
+    },
+    {
+      "id": "12121212",
+      "tuition": "1231452",
+      "name": "la nave",
+      "passengerCapacity": "2000",
+      "flightHours": "10",
+      "status": "pa bola"
     }
   ],
   "crew": [
     {
       "id": "1",
       "license": "123456",
-      "name": "daniel",
+      "name": "Andrea",
       "birthdate": "16/05/2004",
-      "speciality": "Pilot",
+      "speciality": "azafata",
       "flightHours": "1500",
       "email": "guerracarlos1309@gmail.com",
-      "phoneNumber": "4245412555",
+      "phoneNumber": "42454125555",
       "address": "tachira"
     },
     {
@@ -160,7 +225,7 @@
       "license": "31419488",
       "name": "arturo",
       "birthdate": "16/05/2004",
-      "speciality": "piloto",
+      "speciality": "pilota",
       "flightHours": "15000",
       "email": "arturito@gmail.com",
       "phoneNumber": "4247845424",
@@ -169,14 +234,8 @@
   ],
   "reports": [
     {
-      "id": "1",
-      "name": "Flight Report today",
-      "date": "2023-01-27",
-      "status": "Generated "
-    },
-    {
       "id": "2",
-      "name": "Aircraft Maintenance Report",
+      "name": "Aircraft Maintenance Report g",
       "date": "2023-01-01",
       "status": "Generated"
     },
@@ -202,12 +261,6 @@
       "id": "6",
       "name": "Complaints and Claims Report",
       "date": "2023-03-21",
-      "status": "Generated"
-    },
-    {
-      "id": "9",
-      "name": "Cost Report",
-      "date": "2023-06-25",
       "status": "Generated"
     }
   ],
@@ -302,6 +355,32 @@
       "arrival": "Milan",
       "departure": "Barcelona",
       "flightTime": "20:00"
+    },
+    {
+      "id": "ecda",
+      "number": "12121212",
+      "clientName": "121212",
+      "date": "2025-02-03",
+      "total": "1221",
+      "numberBabagge": "121212",
+      "idFlight": "12121212",
+      "methodPay": "Card",
+      "arrival": "cars",
+      "departure": "121212",
+      "flightTime": "12:33"
+    },
+    {
+      "id": "aa26",
+      "number": "adsdsa",
+      "clientName": "asdsadsad",
+      "date": "2025-02-11",
+      "total": "121212",
+      "numberBabagge": "121221",
+      "idFlight": "asdasdsda",
+      "methodPay": "PayPal",
+      "arrival": "121212",
+      "departure": "121212",
+      "flightTime": "19:42"
     }
   ],
   "payments": [
@@ -309,36 +388,57 @@
       "id": "1",
       "date": "2023-05-01",
       "amount": "100.00",
-      "status": "completed",
+      "status": "Completed",
       "customer": "daniel"
     },
     {
       "id": "2",
       "date": "2023-05-02",
       "amount": "75.5",
-      "status": "pending",
+      "status": "Pending",
       "customer": "Ana"
     },
     {
       "id": "3",
       "date": "2023-05-03",
       "amount": "200.00",
-      "status": "failed",
+      "status": "Failed",
       "customer": "Jhon"
     },
     {
       "id": "4",
       "date": "2023-05-04",
       "amount": "50.00",
-      "status": "completed",
+      "status": "Completed",
       "customer": "Alicia"
     },
     {
       "id": "5",
       "date": "2023-05-05",
       "amount": "150.00",
-      "status": "pending",
+      "status": "Pending",
       "customer": "Carlos"
+    },
+    {
+      "id": "12",
+      "date": "1212-12-12",
+      "amount": "12",
+      "status": "Completed",
+      "customer": "12"
+    },
+    {
+      "id": "31419488",
+      "date": "1212-12-12",
+      "amount": "121212",
+      "status": "Pending",
+      "customer": "1212"
+    },
+    {
+      "id": "31419488",
+      "date": "2025-02-01",
+      "amount": "109202",
+      "status": "Completed",
+      "customer": "Daniel"
     }
   ]
 }
